@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@types/chai": "^4.3.3",
+    "@types/cucumber": "^7.0.0"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^8.7.0"
+  }
+}
