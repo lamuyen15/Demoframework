@@ -4,6 +4,7 @@
     "@types/cucumber": "^7.0.0"
   },
   "dependencies": {
-    "@cucumber/cucumber": "^8.7.0"
+    "@cucumber/cucumber": "^8.7.0",
+    "@types/selenium-webdriver": "^4.1.6"
   }
 }
