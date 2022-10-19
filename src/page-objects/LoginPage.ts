@@ -25,6 +25,7 @@ export class loginPage {
   async clickContinueBtn() {
     await driver.findElement(By.xpath(`//button[@id='login-submit']`)).click();
   }
+
   async setpassword(password: string) {
     await driver
       .findElement(By.xpath(`//input[@id="password"]//parent::div`))
