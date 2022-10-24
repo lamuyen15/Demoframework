@@ -5,7 +5,7 @@ export class Login {
   userNameField = By.xpath(`//input[@id='username']`);
   userPasswordField = By.xpath(`//input[@id='password']`);
   clickContinue = By.xpath(`//button[@id='login-submit']`);
-  result = By.xpath(`//button[.="Home"]`);
+  result = By.xpath(`//button[.='Home']`);
 
   constructor(driver: WebDriver) {
     this.driver = driver;
