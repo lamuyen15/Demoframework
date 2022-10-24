@@ -3,7 +3,7 @@ import { Builder, WebDriver } from "selenium-webdriver";
 import { Login } from "../page/login";
 import { Home } from "../page/home";
 import assert from "assert";
-require("chromedriver");
+// require("chromedriver");
 
 let driver: WebDriver;
 var { setDefaultTimeout } = require("cucumber");

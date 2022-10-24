@@ -21,6 +21,7 @@
     "cucumber-tsflow": "^3.2.0",
     "selenium-webdriver": "^4.5.0",
     "ts-node": "^8.0.3",
-    "typescript": "^3.9.10"
+    "typescript": "^3.9.10",
+    "typescript-string-operations": "^1.4.1"
   }
 }
