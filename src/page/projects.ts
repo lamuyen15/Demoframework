@@ -2,7 +2,7 @@ import { By, until, WebDriver } from "selenium-webdriver";
 
 export class Projects {
   driver: WebDriver;
-
+  // elements for project page
   showProductBtn = By.xpath(`//button[.='Show all products']`);
   JiraSoftwareBtn = By.xpath(
     `//a[@href='https://uyenautotraining.atlassian.net/wiki']`
@@ -17,7 +17,7 @@ export class Projects {
   constructor(driver: WebDriver) {
     this.driver = driver;
   }
-
+  // method for project page
   public async openShowAllProducts() {
     await this.driver.findElement(this.showProductBtn).click();
   }

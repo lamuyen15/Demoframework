@@ -3,6 +3,7 @@ import { String } from "typescript-string-operations";
 export class ProjectTemplatesPage {
   driver: WebDriver;
 
+  //elements for project template page
   leftNavigator = By.xpath(
     `//div[starts-with(@data-testid, 'project-template-select') and contains(@data-testid, 'navigation')]`
   );
@@ -26,6 +27,7 @@ export class ProjectTemplatesPage {
     this.driver = driver;
   }
 
+  //method for project template page
   public async openLeftMenu(item: String) {
     let leftNavigationItemLocator = String.format(
       this.leftNavigationItem,

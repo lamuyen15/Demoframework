@@ -1,38 +1,27 @@
-import { binding, given, when } from "cucumber-tsflow/dist";
-import { Builder, WebDriver } from "selenium-webdriver";
+import { World } from "cucumber";
+import { and, binding, given, when } from "cucumber-tsflow/dist";
 import { ProjectCreatePage } from "../page/create_project";
-import { Projects } from "../page/projects";
-import { ProjectTemplatesPage } from "../page/project_template";
 
 @binding()
 export class createNewProject {
-  driver: WebDriver;
-
-  constructor(driver: WebDriver) {
-    this.driver = driver;
-  }
-
-  @when(
-    /^User click on Jira Software and click on Project and Create Project on the navigation bar/
-  )
-  public async userCreateNewProject() {
+  @when(/^User enter the name of project "([^"]*)"/)
+  public async setNameProject(this: World, name: string) {
     let createProjectPage = new ProjectCreatePage(this.driver);
-    await createProjectPage.showAllProduct();
-    await createProjectPage.clickJiraSoftwareButton();
-
-    let projectListPage = new Projects(this.driver);
-    await projectListPage.clickCreateProjectFromHeader();
+    await createProjectPage.setNameProject(name);
   }
 
-  @when(/User enter "([^"]*)" and choose Open on the Acess dropdown list/)
-  public async setNameProject(name: string) {
+  @when(/^User choose Open on the Access dropdown list/)
+  public async userChooseOpenOption(this: World,) {
     let createProjectPage = new ProjectCreatePage(this.driver);
-    await createProjectPage.setProjectName(name);
+    await createProjectPage.chooseAccess();
   }
 
-  @when(/User click on the Create project button/)
-  public async clickBtnCreateProject() {
+  @when(/^User click on the Create project button/)
+  public async userClickCreateProjectBtn(this: World,) {
     let createProjectPage = new ProjectCreatePage(this.driver);
-    await createProjectPage.clickCreateProjecButton();
+    await createProjectPage.clickCreateProjectBtn();
   }
+  // function And(arg0: RegExp) {
+  //   throw new Error("Function not implemented.");
+  // }
 }
