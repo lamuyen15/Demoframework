@@ -2,17 +2,20 @@ import { World } from "cucumber";
 import { binding, given, when } from "cucumber-tsflow/dist";
 import { ProjectTemplatesPage } from "../page/project_template";
 import { WebDriver } from "selenium-webdriver";
-import { ProjectCreatePage } from "../page/create_project";
+import { Projects } from "../page/projects";
 
 let driver: WebDriver;
 
 @binding()
 export class ProjectTemplates {
-  @given(/^User is on Projects template page/)
+  @when(/^User is on Projects template page/)
   public async userCreateProject() {
-    let project = new ProjectCreatePage(driver);
-    await project.clickCreateProjectFromHeader();
-    return;
+    // let project = new ProjectTemplatesPage(driver);
+    // await project.openLeftMenu("Software development");
+    // let projects = new Projects(driver);
+    // await projects.clickCreateProjectFromHeader();
+    
+    // return;
   }
   @when(/^Click on Scrum template and Use template button/)
   public async chooseTemplate() {

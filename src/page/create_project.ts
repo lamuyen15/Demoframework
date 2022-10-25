@@ -13,7 +13,7 @@ export class ProjectCreatePage {
   createProjectBtn = By.xpath(
     `//div[contains(@data-test-id,'submit-button')]//button`
   );
-  clickCreateProjectFromHeader: any;
+ 
 
   constructor(driver: WebDriver) {
     this.driver = driver;
