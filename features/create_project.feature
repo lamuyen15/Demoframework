@@ -1,9 +1,7 @@
 Feature: Create project
 
   Scenario: Create the new project
-    Given Go to page Jira "https://id.atlassian.com/login"
-    When User enter "uyen.nguyen@evizi.com" and click continue button
-    And User enter "lamuyen_0105nt" and click log in button
+    Given User is on start page
     And User click on Jira Software 
     And Click on Project
     And Create Project on the navigation bar
