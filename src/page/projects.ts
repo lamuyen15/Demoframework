@@ -2,8 +2,9 @@ import { By, until, WebDriver } from "selenium-webdriver";
 
 export class Projects {
   driver: WebDriver;
+  // elements for project page
   showProductBtn = By.xpath(`//button[.='Show all products']`);
-  clickJiraSoftwarebtn = By.xpath(
+  JiraSoftwareBtn = By.xpath(
     `//a[@href='https://uyenautotraining.atlassian.net/wiki']`
   );
   projectTopHeaderBtn = By.xpath(
@@ -13,12 +14,16 @@ export class Projects {
     `//div[@role='group']//button[contains(.,'Create project')]`
   );
 
-  clickCreateProjectbtn = By.xpath(
-    `//div[contains(@data-test-id,'submit-button')]//button`
-  );
-
   constructor(driver: WebDriver) {
     this.driver = driver;
+  }
+  // method for project page
+  public async openShowAllProducts() {
+    await this.driver.findElement(this.showProductBtn).click();
+  }
+
+  public async openJiraSoftware() {
+    await this.driver.findElement(this.JiraSoftwareBtn).click();
   }
 
   public async openHeaderMenu(header: String) {
@@ -35,16 +40,4 @@ export class Projects {
     await this.openHeaderMenu("Project");
     await this.driver.findElement(this.clickCreateProject).click();
   }
-
-  // public async setProjectName(projectName: string) {
-  //   await this.driver.findElement(this.projectNameField).sendKeys(projectName);
-  //   await this.driver.findElement(this.accessField).click();
-  //   await this.driver.findElement(this.accessField).click();
-  //   await this.driver.findElement(this.clickOpen).click();
-  // }
-
-  // public async clickCreateProjecButton() {
-  //   await this.driver.findElement(this.clickCreateProjectbtn).click();
-  //   await this.driver.sleep(5000);
-  // }
 }

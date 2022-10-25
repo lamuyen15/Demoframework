@@ -1,24 +1,17 @@
-import { binding, given, when } from "cucumber-tsflow/dist";
-import { Builder, WebDriver } from "selenium-webdriver";
-import { ProjectCreatePage } from "../page/create_project";
-import { Projects } from "../page/projects";
+import { World } from "cucumber";
+import { binding, when } from "cucumber-tsflow/dist";
 import { ProjectTemplatesPage } from "../page/project_template";
 
 @binding()
 export class ProjectTemplates {
-  driver: WebDriver;
-
-  constructor(driver: WebDriver) {
-    this.driver = driver;
+  @when(/^Click on Scrum template and Use template button/)
+  public async chooseTemplate(this: World) {
+    let projectTemplatePage = new ProjectTemplatesPage(this.driver);
+    await projectTemplatePage.clickScrumTemplate();
   }
-
-  @when(
-    /Click on Scrum template,Use template button and Select a team-managed project/
-  )
-  public async chooseTemplate() {
-    let projectTemplatesPage = new ProjectTemplatesPage(this.driver);
-    await projectTemplatesPage.clickScrumTemplate();
-    await projectTemplatesPage.openNewProjectTypeByTemplate();
-    // TODO: Select a team-managed project
+  @when(/^Select a team-managed project button/)
+  public async chooseProjectTypes(this: World) {
+    let projectTemplatePage = new ProjectTemplatesPage(this.driver);
+    await projectTemplatePage.openNewProjectTypeByTemplate();
   }
 }
