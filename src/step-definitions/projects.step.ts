@@ -5,7 +5,7 @@ import { Constants } from "../common/constants";
 import { Login } from "../page/login";
 import { Projects } from "../page/projects";
 
-let driver : WebDriver;
+let driver: WebDriver;
 
 @binding()
 export class Project {
@@ -18,23 +18,22 @@ export class Project {
     await loginPage.setUserPassword(Constants.DEFAULT_PASSWORD);
   }
 
-  @given(/^User is on start page"/)
+  @given(/^User is on start page/)
   public async userIsOnStartPage() {
-    // TODO: prepare data
+    return;
   }
 
   @when(/^User click on Jira Software/)
   public async userOpenJiraSoftwareBtn() {
     let project = new Projects(driver);
-    await project.openShowAllProducts();
     await project.openJiraSoftware();
   }
   @when(/^Click on Project/)
-  public async userOpenProjectFromHeader(header: string) {
+  public async userOpenProjectFromHeader() {
     let project = new Projects(driver);
-    await project.openHeaderMenu(header);
+    await project.openHeaderMenu("Projects");
   }
-  @when(/^Create Project on the navigation bar/)
+  @when(/^Create Project via the navigation bar on project list page/)
   public async userCreateProject() {
     let project = new Projects(driver);
     await project.clickCreateProjectFromHeader();

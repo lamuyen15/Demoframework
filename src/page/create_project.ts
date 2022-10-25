@@ -17,6 +17,7 @@ export class ProjectCreatePage {
   constructor(driver: WebDriver) {
     this.driver = driver;
   }
+
 //method for create project page
   public async setNameProject(nameProject:string){
     await this.driver.findElement(this.projectNameField).sendKeys(nameProject);

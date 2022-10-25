@@ -9,13 +9,10 @@ let driver;
 
 @binding()
 export class createNewProject {
-  @before()
-  public async initLogin() {
-    driver = new Builder().forBrowser("chrome").build();
-    await driver.get(Constants.LOGIN_URL);
-    let loginPage = new Login(driver);
-    await loginPage.setUserName(Constants.DEFAULT_USR);
-    await loginPage.setUserPassword(Constants.DEFAULT_PASSWORD);
+  @when(/^Create Project on project template/)
+  public async userCreateProject() {
+    // let project = new ProjectCreatePage(driver);
+    // await project.clickCreateProjectFromHeader();
   }
 
   @when(/^User enter the name of project "([^"]*)"/)

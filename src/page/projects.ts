@@ -5,8 +5,9 @@ export class Projects {
   // elements for project page
   showProductBtn = By.xpath(`//button[.='Show all products']`);
   JiraSoftwareBtn = By.xpath(
-    `//a[@href='https://uyenautotraining.atlassian.net/wiki']`
+    `//button[div[starts-with(@data-testid,"start-product__JIRA_SOFTWARE")]]`
   );
+  //a[button[contains(., "Jira Software")]]
   projectTopHeaderBtn = By.xpath(
     `//div[@id='ak-jira-navigation']//button[.='Projects']`
   );
