@@ -7,8 +7,8 @@ import { Login } from "../page/login";
 import { Projects } from "../page/projects";
 import { ProjectTemplatesPage } from "../page/project_template";
 
-var { setDefaultTimeout } = require("cucumber");
-setDefaultTimeout(60 * 1000);
+// var { setDefaultTimeout } = require("cucumber");
+// setDefaultTimeout(60 * 1000);
 
 let driver: WebDriver;
 

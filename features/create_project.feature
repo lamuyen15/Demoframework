@@ -8,7 +8,7 @@ Feature: Create project
     And Click Software Development on Projects template page
     And Click on Scrum template and Use template button
     And Select a team-managed project button
-    And User enter the name of project "project3" 
+    And User enter the name of project "Project_3" 
     And User choose Open on the Access dropdown list
     And User click on the Create project button
     # Then User navigate to the new project page

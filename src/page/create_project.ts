@@ -26,7 +26,8 @@ export class ProjectCreatePage {
 
   public async chooseAccess() {
     await this.driver.findElement(this.accessField).click();
-    await this.driver.findElement(this.createProjectBtn).click();
+    await this.driver.sleep(15000);
+    await this.driver.findElement(this.openOption).click();
   }
   public async clickCreateProjectBtn(){
     await this.driver.findElement(this.createProjectBtn).click();

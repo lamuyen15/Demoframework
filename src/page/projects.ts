@@ -30,13 +30,7 @@ export class Projects {
   public async openHeaderMenu(header: String) {
     switch (header) {
       case "Project":
-        await this.driver.wait(
-          until.elementIsVisible(
-            this.driver.findElement(this.clickCreateProject)
-          )
-        );
         await this.driver.findElement(this.projectTopHeaderBtn).click();
-        await this.driver.sleep(5000);
         break;
       default:
         break;
@@ -45,9 +39,7 @@ export class Projects {
 
   public async clickCreateProjectFromHeader() {
     await this.openHeaderMenu("Project");
-    await this.driver.wait(
-      until.elementIsVisible(this.driver.findElement(this.clickCreateProject))
-    );
     await this.driver.findElement(this.clickCreateProject).click();
+    await this.driver.sleep(20000);
   }
 }
