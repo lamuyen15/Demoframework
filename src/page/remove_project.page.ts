@@ -24,6 +24,7 @@ export class RemoveProjectPage {
     `//span[.='Delete permanently' and @role="menuitem"]`
   );
   deleteBtn = By.xpath(`//button[.='Delete']`);
+  messageDisplays = By.xpath(`//div[@data-testid="project-permanent-delete-modal.ui.flags.success-flag"]`);
 
   constructor(driver: WebDriver) {
     this.driver = driver;
@@ -72,8 +73,14 @@ export class RemoveProjectPage {
     await this.driver.findElement(this.clickDeletePermanently).click();
     await this.driver.sleep(4000);
   }
+
   public async clickDeleteBtn() {
     await this.driver.findElement(this.deleteBtn).click();
     await this.driver.sleep(3000);
+  }
+
+ public async messageDisplay() {
+    await this.driver.findElement(this.messageDisplays).isDisplayed();
+
   }
 }

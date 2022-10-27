@@ -1,5 +1,5 @@
 import { WebDriver } from "selenium-webdriver";
-import { Given, When, World } from "cucumber";
+import { Given, Then, When, World } from "cucumber";
 import { RemoveProjectPage } from "../page/remove_project.page";
 
 let driver: WebDriver;
@@ -64,9 +64,8 @@ When(/^User choose Delete button on the message box/,async function(this:World){
 );
 
 
-// @then(/^The message box displays/)
-// public async isUserOnNewProjectPage(this: World) {
-//     let projectPage = new NewProjectPage(driver);
-//     let isOnNewProjectPage = await projectPage.isAt();
-//     assert.equal(isOnNewProjectPage, true);
-//   }
+Then(/^The message about remove project displays/,async function(this:World){
+  let removeProject = new RemoveProjectPage(this.driver);
+  await removeProject.messageDisplay()
+  }
+);
