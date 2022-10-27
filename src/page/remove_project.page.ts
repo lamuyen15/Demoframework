@@ -1,0 +1,34 @@
+import { By, WebDriver } from "selenium-webdriver";
+export class RemoveProjectPage {
+  driver: WebDriver;
+
+  //element for remove project page
+  clickViewAllProjects=By.xpath(`//div[@role='group']//a[@href='/jira/projects']`);
+  selectMoreBtn=By.xpath(`//tr[contains(.,'PRJCT3')]//span[@role='img']//ancestor::button`);
+  moveToTrashBtn=By.xpath(`//span[@role='menuitem']//parent::div`);
+  clickMoveBtn=By.xpath(` //span[text()='Move']//ancestor::button[contains(@data-test-id, 'move-to-trash-button')]`);
+  messageMoveProjectSuccessfully=By.xpath(`//div[@role='alert']`);
+
+  constructor(driver:WebDriver){
+    this.driver=driver;
+  }
+
+  //method for remove project
+
+  public async openViewAllProject() {
+    await this.driver.findElement(this.clickViewAllProjects).click();
+  }
+
+  public async openMoveToTrash(){
+    await this.driver.findElement(this.selectMoreBtn).click();
+    await this.driver.findElement(this.moveToTrashBtn).click();
+  }
+ public async selectMoveBtn(){
+    await this.driver.findElement(this.clickMoveBtn).click();
+ }
+ 
+
+
+
+  
+}

@@ -2,6 +2,7 @@ import assert from 'assert';
 import { World } from 'cucumber';
 import { binding, given, then, when } from 'cucumber-tsflow/dist';
 import { WebDriver } from 'selenium-webdriver';
+import { RemoveProjectPage } from '../page/remove_project.page';
 let driver: WebDriver;
 
 @binding()
@@ -9,7 +10,7 @@ export class RemoveProject
 {
 @given(/^User is on Jira Software page/)
 public async isOnJiraSoftwarePage(){
-    let removeProject = new RemoveProjects(driver);
+    let removeProject = new RemoveProjectPage(driver);
     await removeProject.openJiraSoftware();
 }
 @when(/^User select View All Projects from Project button/)

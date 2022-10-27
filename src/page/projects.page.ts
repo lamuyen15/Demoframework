@@ -1,4 +1,4 @@
-import { By, until, WebDriver } from "selenium-webdriver";
+import { By, WebDriver } from "selenium-webdriver";
 
 export class Projects {
   driver: WebDriver;
@@ -7,7 +7,7 @@ export class Projects {
   JiraSoftwareBtn = By.xpath(
     `//button[div[starts-with(@data-testid,"start-product__JIRA_SOFTWARE")]]`
   );
-  //a[button[contains(., "Jira Software")]]
+
   projectTopHeaderBtn = By.xpath(
     `//div[@id='ak-jira-navigation']//button[.='Projects']`
   );
