@@ -18,8 +18,8 @@ Feature: Project
     Given User is on Project created
     When User select Project button 
     And User select View All Projects via the navigation bar on project list page
-    # And User select More button of project "Project3" on the record of result
-    # And User choose Move to trash from dropdown list
+    And User select More button of project "Project_3" on the record of result
+    And User choose Move to trash from dropdown list
     # And User select Move button on the message box
     # Then The message box displays
   
