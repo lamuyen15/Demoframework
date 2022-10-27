@@ -14,13 +14,12 @@ Feature: Project
     Then New project "demoproject10" displays
 
 
-  Scenario: Remove the project
-    Given User is on Jira Software page
-    When User select View All Projects from Project button
-    And User select More button of project "Project3" on the record of result
-    And User choose Move to trash from dropdown list
-    And User select Move button on the message box
-    Then The message box displays
+  # Scenario: Remove the project
+  #   Given User is on Project created
+  # #   # And User select More button of project "Project3" on the record of result
+  # #   # And User choose Move to trash from dropdown list
+  # #   # And User select Move button on the message box
+  # #   # Then The message box displays
   
 
 

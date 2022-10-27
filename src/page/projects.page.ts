@@ -40,6 +40,6 @@ export class Projects {
   public async clickCreateProjectFromHeader() {
     await this.openHeaderMenu("Project");
     await this.driver.findElement(this.clickCreateProject).click();
-    await this.driver.sleep(30000);
+    await this.driver.sleep(10000);
   }
 }
