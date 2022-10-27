@@ -28,7 +28,7 @@ When(/^User select More button of project "Project_3" on the record of result/, 
 );
 
 When(/^User choose Move to trash from dropdown list/, async function(this:World){
-    let removeProject = new RemoveProjectPage(driver);
+    let removeProject = new RemoveProjectPage(this.driver);
     await removeProject.openMoveToTrash();
 }
 );
