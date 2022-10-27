@@ -1,5 +1,4 @@
 import { By, WebDriver } from "selenium-webdriver";
-import { World } from "cucumber";
 export class NewProjectPage {
   driver: WebDriver;
 

@@ -1,10 +1,10 @@
 import assert from "assert";
-import {  World } from "cucumber";
-import {  before, binding, given, then, when } from "cucumber-tsflow/dist";
+import { World } from "cucumber";
+import { before, binding, given, then, when } from "cucumber-tsflow/dist";
 import { Builder, WebDriver } from "selenium-webdriver";
 import { Constants } from "../common/constants";
 import { ProjectCreatePage } from "../page/create_project.page";
-import { Login } from "../page/login";
+import { Login } from "../page/login.page";
 import { NewProjectPage } from "../page/new_project_page.page";
 import { Projects } from "../page/projects.page";
 import { ProjectTemplatesPage } from "../page/project_template.page";
@@ -40,7 +40,9 @@ export class Project {
     let project = new Projects(driver);
     await project.openHeaderMenu("Projects");
   }
-  @when(/^User select Create Project via the navigation bar on project list page/)
+  @when(
+    /^User select Create Project via the navigation bar on project list page/
+  )
   public async userCreateProject() {
     let project = new Projects(driver);
     await project.clickCreateProjectFromHeader();
@@ -76,13 +78,15 @@ export class Project {
     await createProjectPage.chooseAccess();
   }
 
-  @when(/^User select the Create project button on the bottom of the project create page/)
+  @when(
+    /^User select the Create project button on the bottom of the project create page/
+  )
   public async userClickCreateProjectBtn(this: World) {
     let createProjectPage = new ProjectCreatePage(driver);
     await createProjectPage.clickCreateProjectBtn();
   }
   @then(/New project "demoproject10" displays/)
-  public async isUserOnNewProjectPage(this:World) {
+  public async isUserOnNewProjectPage(this: World) {
     let projectPage = new NewProjectPage(driver);
     let isOnNewProjectPage = await projectPage.isAt();
     assert.equal(isOnNewProjectPage, true);
