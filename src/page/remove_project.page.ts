@@ -21,6 +21,7 @@ export class RemoveProjectPage {
     ` //span[text()='Move']//ancestor::button[contains(@data-test-id, 'move-to-trash-button')]`
   );
   goToTrashItem = By.xpath(`//a[.='Go to trash']`) ;
+  clickDeletePermanently=By.xpath(`//span[.='Delete permanently' and @role="menuitem"]`);
 
 
   constructor(driver: WebDriver) {
@@ -63,6 +64,11 @@ export class RemoveProjectPage {
 
   public async selectMoreBtnOnTrashPage() {
     await this.driver.findElement(this.selectMoreBtn).click();
+    await this.driver.sleep(4000);
+  }
+
+  public async selectDelete() {
+    await this.driver.findElement(this.clickDeletePermanently).click();
     await this.driver.sleep(4000);
   }
 }

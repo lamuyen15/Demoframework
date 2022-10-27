@@ -51,6 +51,13 @@ When(/^User choose More button of project "Project_3" on the record of result on
 }
 );
 
+When(/^User select Delete permanently on the dropdown list/,async function(this:World){
+  let removeProject = new RemoveProjectPage(this.driver);
+  await removeProject.selectDelete();
+}
+);
+
+
 // @then(/^The message box displays/)
 // public async isUserOnNewProjectPage(this: World) {
 //     let projectPage = new NewProjectPage(driver);
