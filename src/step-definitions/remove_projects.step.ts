@@ -15,6 +15,12 @@ When(/^User select Project button/,async function(this:World){
   await removeProject.openProjectFromHeader();
 });
 
+When(/^User select View All Projects via the navigation bar on project list page/, async function(this:World){
+  removeProject = new RemoveProjectPage(this.driver);
+  await removeProject.openViewAllProject();
+}
+);
+
 // @when(/^User choose Move to trash from dropdown list/)
 // public async selectMoveToTrash(){
 //     let removeProject = new RemoveProjectPage(driver);

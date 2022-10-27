@@ -33,6 +33,7 @@ export class RemoveProjectPage {
 
   public async openProjectFromHeader(){
     await this.driver.findElement(this.projectTopHeaderBtn).click();
+    await this.driver.sleep(10000);
   }
 
   public async openViewAllProject() {
