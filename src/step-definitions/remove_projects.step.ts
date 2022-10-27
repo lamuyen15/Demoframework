@@ -57,6 +57,12 @@ When(/^User select Delete permanently on the dropdown list/,async function(this:
 }
 );
 
+When(/^User choose Delete button on the message box/,async function(this:World){
+  let removeProject = new RemoveProjectPage(this.driver);
+  await removeProject.clickDeleteBtn();
+}
+);
+
 
 // @then(/^The message box displays/)
 // public async isUserOnNewProjectPage(this: World) {

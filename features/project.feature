@@ -24,6 +24,7 @@ Feature: Project
     And User choose Go to Trash on the message box
     And User choose More button of project "Project_3" on the record of result on the Trash page
     And User select Delete permanently on the dropdown list
+    And User choose Delete button on the message box
 
 
 

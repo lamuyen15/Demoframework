@@ -1,6 +1,5 @@
 import { By, WebDriver } from "selenium-webdriver";
 export class RemoveProjectPage {
-
   driver: WebDriver;
 
   //element for remove project page
@@ -20,9 +19,11 @@ export class RemoveProjectPage {
   clickMoveBtn = By.xpath(
     ` //span[text()='Move']//ancestor::button[contains(@data-test-id, 'move-to-trash-button')]`
   );
-  goToTrashItem = By.xpath(`//a[.='Go to trash']`) ;
-  clickDeletePermanently=By.xpath(`//span[.='Delete permanently' and @role="menuitem"]`);
-
+  goToTrashItem = By.xpath(`//a[.='Go to trash']`);
+  clickDeletePermanently = By.xpath(
+    `//span[.='Delete permanently' and @role="menuitem"]`
+  );
+  deleteBtn = By.xpath(`//button[.='Delete']`);
 
   constructor(driver: WebDriver) {
     this.driver = driver;
@@ -33,7 +34,7 @@ export class RemoveProjectPage {
     await this.driver.findElement(this.projectName).isDisplayed();
   }
 
-  public async openProjectFromHeader(){
+  public async openProjectFromHeader() {
     await this.driver.findElement(this.projectTopHeaderBtn).click();
     await this.driver.sleep(10000);
   }
@@ -70,5 +71,9 @@ export class RemoveProjectPage {
   public async selectDelete() {
     await this.driver.findElement(this.clickDeletePermanently).click();
     await this.driver.sleep(4000);
+  }
+  public async clickDeleteBtn() {
+    await this.driver.findElement(this.deleteBtn).click();
+    await this.driver.sleep(3000);
   }
 }
