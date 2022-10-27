@@ -1,5 +1,5 @@
 import { WebDriver } from "selenium-webdriver";
-import { Given, World } from "cucumber";
+import { Given, When, World } from "cucumber";
 import { RemoveProjectPage } from "../page/remove_project.page";
 
 let driver: WebDriver;
@@ -10,11 +10,11 @@ Given(/^User is on Project created/, async function (this: World) {
   await removeProject.isAtProjectCreated();
 });
 
-// @when(/^User select More button of project on the record of result/)
-// public async selectMoreBtn() {
-//     let removeProject = new RemoveProjectPage(driver);
-//     await removeProject.openMoveToTrash();
-// }
+When(/^User select Project button/,async function(this:World){
+  removeProject = new RemoveProjectPage(this.driver);
+  await removeProject.openProjectFromHeader();
+});
+
 // @when(/^User choose Move to trash from dropdown list/)
 // public async selectMoveToTrash(){
 //     let removeProject = new RemoveProjectPage(driver);
