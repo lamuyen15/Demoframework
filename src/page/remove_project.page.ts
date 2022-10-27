@@ -50,5 +50,6 @@ export class RemoveProjectPage {
   }
   public async selectMoveBtn() {
     await this.driver.findElement(this.clickMoveBtn).click();
+    await this.driver.sleep(5000);
   }
 }

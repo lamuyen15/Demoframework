@@ -33,11 +33,11 @@ When(/^User choose Move to trash from dropdown list/, async function(this:World)
 }
 );
 
-// @when(/^User select Move button on the message box/)
-// public async selectMoveBtn(){
-//     let removeProject = new RemoveProjectPage(driver);
-//     await removeProject.selectMoveBtn();
-// }
+When(/^User select Move button on the message box/,async function(this:World){
+    let removeProject = new RemoveProjectPage(this.driver);
+    await removeProject.selectMoveBtn();
+}
+);
 // @then(/^The message box displays/)
 // public async isUserOnNewProjectPage(this: World) {
 //     let projectPage = new NewProjectPage(driver);
