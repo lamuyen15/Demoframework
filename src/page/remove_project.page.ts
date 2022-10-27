@@ -20,7 +20,7 @@ export class RemoveProjectPage {
   clickMoveBtn = By.xpath(
     ` //span[text()='Move']//ancestor::button[contains(@data-test-id, 'move-to-trash-button')]`
   );
-  messageMoveProjectSuccessfully = By.xpath(`//div[@role='alert']`);
+  goToTrashItem = By.xpath(`//a[.='Go to trash']`) ;
 
   constructor(driver: WebDriver) {
     this.driver = driver;
@@ -45,11 +45,18 @@ export class RemoveProjectPage {
     await this.driver.findElement(this.selectMoreBtn).click();
     await this.driver.sleep(5000);
   }
+
   public async openMoveToTrash() {
     await this.driver.findElement(this.moveToTrashBtn).click();
   }
+
   public async selectMoveBtn() {
     await this.driver.findElement(this.clickMoveBtn).click();
     await this.driver.sleep(5000);
+  }
+
+    public async selectGoToTrash() {
+    await this.driver.findElement(this.goToTrashItem).click();
+    await this.driver.sleep(4000);
   }
 }

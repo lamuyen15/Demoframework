@@ -38,6 +38,12 @@ When(/^User select Move button on the message box/,async function(this:World){
     await removeProject.selectMoveBtn();
 }
 );
+
+When(/^User choose Go to Trash on the message box/,async function(this:World){
+  let removeProject = new RemoveProjectPage(this.driver);
+  await removeProject.selectGoToTrash();
+}
+);
 // @then(/^The message box displays/)
 // public async isUserOnNewProjectPage(this: World) {
 //     let projectPage = new NewProjectPage(driver);
