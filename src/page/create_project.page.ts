@@ -1,4 +1,4 @@
-import { By, until, WebDriver } from "selenium-webdriver";
+import { By, WebDriver } from "selenium-webdriver";
 
 export class ProjectCreatePage {
   driver: WebDriver;
@@ -31,6 +31,7 @@ export class ProjectCreatePage {
   }
   public async clickCreateProjectBtn(){
     await this.driver.findElement(this.createProjectBtn).click();
+    await this.driver.sleep(15000);
   }
 
 }

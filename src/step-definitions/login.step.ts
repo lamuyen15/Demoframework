@@ -1,7 +1,7 @@
-import { and, binding, given, then, when } from "cucumber-tsflow";
+import { binding, given, then, when } from "cucumber-tsflow";
 import { Builder, WebDriver } from "selenium-webdriver";
 import { Login } from "../page/login";
-import { Home } from "../page/home";
+import { Home } from "../page/home.page";
 import assert from "assert";
 import { World } from "cucumber";
 
