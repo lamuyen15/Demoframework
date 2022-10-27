@@ -22,6 +22,7 @@ export class RemoveProjectPage {
   );
   goToTrashItem = By.xpath(`//a[.='Go to trash']`) ;
 
+
   constructor(driver: WebDriver) {
     this.driver = driver;
   }
@@ -55,8 +56,13 @@ export class RemoveProjectPage {
     await this.driver.sleep(5000);
   }
 
-    public async selectGoToTrash() {
+  public async selectGoToTrash() {
     await this.driver.findElement(this.goToTrashItem).click();
+    await this.driver.sleep(4000);
+  }
+
+  public async selectMoreBtnOnTrashPage() {
+    await this.driver.findElement(this.selectMoreBtn).click();
     await this.driver.sleep(4000);
   }
 }

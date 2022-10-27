@@ -22,7 +22,7 @@ Feature: Project
     And User choose Move to trash from dropdown list
     And User select Move button on the message box
     And User choose Go to Trash on the message box
-  
+    And User choose More button of project "Project_3" on the record of result on the Trash page
 
 
 

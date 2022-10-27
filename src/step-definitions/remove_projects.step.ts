@@ -44,6 +44,13 @@ When(/^User choose Go to Trash on the message box/,async function(this:World){
   await removeProject.selectGoToTrash();
 }
 );
+
+When(/^User choose More button of project "Project_3" on the record of result on the Trash page/,async function(this:World){
+  let removeProject = new RemoveProjectPage(this.driver);
+  await removeProject.selectMoreBtnOnTrashPage();
+}
+);
+
 // @then(/^The message box displays/)
 // public async isUserOnNewProjectPage(this: World) {
 //     let projectPage = new NewProjectPage(driver);
