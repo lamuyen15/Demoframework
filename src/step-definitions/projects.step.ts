@@ -15,16 +15,7 @@ import { RemoveProjectPage } from "../page/remove_project.page";
 
 let driver: WebDriver;
 
-Before({}, async function () {
-  if (!driver) {
-    driver = new Builder().forBrowser("chrome").build();
-    await driver.get(Constants.LOGIN_URL);
-    let loginPage = new Login(driver);
-    await loginPage.setUserName(Constants.DEFAULT_USR);
-    await loginPage.setUserPassword(Constants.DEFAULT_PASSWORD);
-  }
-});
-// public async initLogin() {
+// Before({}, async function () {
 //   if (!driver) {
 //     driver = new Builder().forBrowser("chrome").build();
 //     await driver.get(Constants.LOGIN_URL);
@@ -32,7 +23,20 @@ Before({}, async function () {
 //     await loginPage.setUserName(Constants.DEFAULT_USR);
 //     await loginPage.setUserPassword(Constants.DEFAULT_PASSWORD);
 //   }
-// }
+// });
+BeforeAll( async function () {
+  driver = new Builder().forBrowser("chrome").build();
+  await driver.get(Constants.LOGIN_URL);
+  let loginPage = new Login(driver);
+  await loginPage.setUserName(Constants.DEFAULT_USR);
+  await loginPage.setUserPassword(Constants.DEFAULT_PASSWORD);
+});
+
+Before(async function (this: World) {
+  if (!this.driver) {
+    this.driver = driver;
+  }
+});
 
 Given(/^User is on start page/, async function (this: World) {
   return;
@@ -109,8 +113,4 @@ Then(/New project "demoproject10" displays/, async function (this: World) {
   assert.equal(isOnNewProjectPage, true);
 });
 
-// @given(/^User is on Project created/)
-// public async isOnProjectCreated() {
-//   let removeProject = new RemoveProjectPage(driver);
-//   // await removeProject.isAtProjectCreated();
-// }
+

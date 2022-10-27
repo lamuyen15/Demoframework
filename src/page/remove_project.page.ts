@@ -5,12 +5,8 @@ export class RemoveProjectPage {
 
   //element for remove project page
 
-  // projectName = By.xpath(`//h2[text()='demoproject10']`);
-  showProductBtn = By.xpath(`//button[.='Show all products']`);
+  projectName = By.xpath(`//h2[text()='demoproject10']`);
 
-  JiraSoftwareBtn = By.xpath(
-    `//button[div[starts-with(@data-testid,"start-product__JIRA_SOFTWARE")]]`
-  );
   projectTopHeaderBtn = By.xpath(
     `//div[@id='ak-jira-navigation']//button[.='Projects']`
   );
@@ -31,16 +27,8 @@ export class RemoveProjectPage {
   }
 
   //method for remove project
-  // public async isAtProjectCreated() {
-  //   await this.driver.findElement(this.projectName).isDisplayed();
-  // }
-
-  public async openShowAllProduct() {
-    await this.driver.findElement(this.showProductBtn).click();
-  }
-
-  public async openJiraSoftwarePage() {
-    await this.driver.findElement(this.JiraSoftwareBtn).click();
+  public async isAtProjectCreated() {
+    await this.driver.findElement(this.projectName).isDisplayed();
   }
 
   public async openProjectFromHeader(){
