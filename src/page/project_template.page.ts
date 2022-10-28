@@ -1,4 +1,4 @@
-import { By, until, WebDriver } from "selenium-webdriver";
+import { By, WebDriver } from "selenium-webdriver";
 import { String } from "typescript-string-operations";
 export class ProjectTemplatesPage {
   driver: WebDriver;
