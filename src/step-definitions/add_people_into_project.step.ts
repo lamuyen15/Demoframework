@@ -17,6 +17,13 @@ When(
     await addPeopleProject.selectProject();
   }
 );
+When(
+    /^User select Project Setting on the left of navigation bar/,
+    async function (this: World) {
+      addPeopleProject = new addPeoPleProjectPage(this.driver);
+      await addPeopleProject.selectProjectSetting();
+    }
+  );
 
 When(
   /^User choose Access Item on the left of navigation bar/,

@@ -1,7 +1,7 @@
 import { By, WebDriver } from "selenium-webdriver";
+import { SeleniumWebdriverWrapper } from "./seleniumWebdriverWrapper";
 
-export class Projects {
-  driver: WebDriver;
+export class Projects extends SeleniumWebdriverWrapper {
   // elements for project page
   showProductBtn = By.xpath(`//button[.='Show all products']`);
   JiraSoftwareBtn = By.xpath(
@@ -16,8 +16,14 @@ export class Projects {
   );
 
   constructor(driver: WebDriver) {
-    this.driver = driver;
+    super(driver);
   }
+
+  // method for project page
+  public async waitForProjectsPageDisplayed() {
+    await this.waitUntilElementLoadedAndDisplayed(this.showProductBtn);
+  }
+
   // method for project page
   public async openShowAllProducts() {
     await this.driver.findElement(this.showProductBtn).click();
