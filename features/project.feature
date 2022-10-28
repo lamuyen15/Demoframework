@@ -28,4 +28,11 @@ Feature: Project
     Then The message about remove project displays
 
 
-
+Scenario: Add people into Project
+    Given User is on Project page
+    When User select "pratice-projectTS" on the record of the result
+    And User choose Access Item on the left of navigation bar
+    And User select Add people button on the right of top page
+    And User enter people with name "hung.phan@evizi.com"
+    And User choose Administrator on the Role dropdown list
+    And User select Add button
