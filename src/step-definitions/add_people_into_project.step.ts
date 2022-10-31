@@ -43,9 +43,9 @@ When(
 
 When(
   /^User enter people with name "([^"]*)"/,
-  async function (this: World, name: string) {
+  async function (this: World, Address: string) {
     addPeopleProject = new addPeoPleProjectPage(this.driver);
-    await addPeopleProject.setName(name);
+    await addPeopleProject.setName(Address);
   }
 );
 
@@ -61,3 +61,4 @@ When(/^User select Add button/, async function (this: World) {
   addPeopleProject = new addPeoPleProjectPage(this.driver);
   await addPeopleProject.selectAddBtn();
 });
+
