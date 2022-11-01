@@ -18,6 +18,7 @@ export class Projects {
   constructor(driver: WebDriver) {
     this.driver = driver;
   }
+
   // method for project page
   public async openShowAllProducts() {
     await this.driver.findElement(this.showProductBtn).click();

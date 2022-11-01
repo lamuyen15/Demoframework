@@ -65,5 +65,6 @@ When(/^User select Add button/, async function (this: World) {
 
 Then(/^The new person "Hung Phan Hai Dao" displays/,async function(this:World){
   addPeopleProject = new addPeoPleProjectPage(this.driver);
+  
   await addPeopleProject.newPersonDisplays();
 })
