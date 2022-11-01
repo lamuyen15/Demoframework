@@ -5,26 +5,15 @@ import { Builder, WebDriver } from "selenium-webdriver";
 import { Constants } from "../common/constants";
 import { ProjectCreatePage } from "../page/create_project.page";
 import { Login } from "../page/login.page";
-import { NewProjectPage } from "../page/new_project_page.page";
+import { NewProjectPage } from "../page/new_project.page";
 import { Projects } from "../page/projects.page";
 import { ProjectTemplatesPage } from "../page/project_template.page";
-import { RemoveProjectPage } from "../page/remove_project.page";
 
-// var { setDefaultTimeout } = require("cucumber");
-// setDefaultTimeout(60 * 1000);
+
 
 let driver: WebDriver;
 
-// Before({}, async function () {
-//   if (!driver) {
-//     driver = new Builder().forBrowser("chrome").build();
-//     await driver.get(Constants.LOGIN_URL);
-//     let loginPage = new Login(driver);
-//     await loginPage.setUserName(Constants.DEFAULT_USR);
-//     await loginPage.setUserPassword(Constants.DEFAULT_PASSWORD);
-//   }
-// });
-BeforeAll( async function () {
+BeforeAll(async function () {
   driver = new Builder().forBrowser("chrome").build();
   await driver.get(Constants.LOGIN_URL);
   let loginPage = new Login(driver);
@@ -39,15 +28,15 @@ Before(async function (this: World) {
 });
 
 Given(/^User is on start page/, async function (this: World) {
-  return;
+  let project = new Projects(driver);
+  console.log("Wait for projects page displayed");
+  // await project.waitForProjectsPageDisplayed();
 });
 
 When(/^User open on Jira Software/, async function (this: World) {
   let project = new Projects(driver);
   await project.openJiraSoftware();
-  await driver.sleep(3000);
 });
-
 
 When(/^User select Project from header menu/, async function (this: World) {
   let project = new Projects(driver);
@@ -55,7 +44,7 @@ When(/^User select Project from header menu/, async function (this: World) {
 });
 
 When(
-  /^User select Create Project via the navigation bar on project list page/,
+  /^User select Create Project/,
   async function (this: World) {
     let project = new Projects(driver);
     await project.clickCreateProjectFromHeader();
@@ -86,10 +75,13 @@ When(
   }
 );
 
-When(/^User create project with name "([^"]*)"/, async function (this: World,name:string) {
-  let createProjectPage = new ProjectCreatePage(driver);
-  await createProjectPage.setNameProject(name);
-});
+When(
+  /^User create project with name "([^"]*)"/,
+  async function (this: World, name: string) {
+    let createProjectPage = new ProjectCreatePage(driver);
+    await createProjectPage.setNameProject(name);
+  }
+);
 
 When(
   /^User choose Open on the Access dropdown list/,
@@ -100,7 +92,7 @@ When(
 );
 
 When(
-  /^User select the Create project button on the bottom of the project create page/,
+  /^User select the Create project button in the project create page/,
   async function (this: World) {
     let createProjectPage = new ProjectCreatePage(driver);
     await createProjectPage.clickCreateProjectBtn();
@@ -112,5 +104,3 @@ Then(/New project "demoproject10" displays/, async function (this: World) {
   let isOnNewProjectPage = await projectPage.isAt();
   assert.equal(isOnNewProjectPage, true);
 });
-
-
