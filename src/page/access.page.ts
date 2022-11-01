@@ -14,7 +14,7 @@ export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
   accessBtn = By.xpath(`//span[contains(text(),'Access')]//ancestor::a`);
   addPeopleBtn = By.xpath(`//button[span[contains(text(),'Add people')]]`);
   emailAddressField = By.xpath(
-    `//div[@data-test-id='project-add-people.dialog.input']`
+    `//div[@data-test-id='project-add-people.dialog.input']//input`
   );
   roleField = By.xpath(
     `//label[.='Role']/following-sibling::div//div[starts-with(@data-test-id,"project-add-people")]`
@@ -23,7 +23,8 @@ export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
     `//div[div[div[contains(text(),'Administrator')]]]`
   );
   addBtn = By.xpath(`//button[.='Add']`);
-  nameOfPeopleField = By.xpath(`//div[@id="react-select-8-option-0"]`);
+  nameOfPeopleField = By.xpath(`//div[contains(@id,'option-0')]`);
+  newPerson=By.xpath(`//td[.="Hưng Phan Đào Hải"]`);
 
   constructor(driver: WebDriver) {
     super(driver);
@@ -56,20 +57,28 @@ export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
     await this.driver.findElement(this.addPeopleBtn).click();
     await this.driver.sleep(6000);
   }
-
-  public async setName(Address: string) {  
-    await this.driver.findElement(this.emailAddressField).sendKeys(Address);
+  public async waitForAddressFieldDisplayed() {
     await this.waitUntilElementLoadedAndDisplayed(this.emailAddressField);
+  }
+
+  public async setName() {
+    await this.driver
+      .findElement(this.emailAddressField)
+      .sendKeys("hung.phan@evizi.com");
+    await this.driver.sleep(3000);
+    // await this.waitUntilElementLoadedAndDisplayed(this.emailAddressField);
     await this.driver.findElement(this.nameOfPeopleField).click();
   }
 
+  public async selectAdministrator() {
+    await this.driver.findElement(this.roleField).click();
+    await this.driver.findElement(this.administrationItem).click();
+  }
+  public async selectAddBtn() {
+    await this.driver.findElement(this.addBtn).click();
+  }
 
-  
-  // public async selectAdministrator() {
-  //   await this.driver.findElement(this.roleField).click();
-  //   await this.driver.findElement(this.administrationItem).click();
-  // }
-  // public async selectAddBtn() {
-  //   await this.driver.findElement(this.addBtn).click();
-  // }
+  public async newPersonDisplays() {
+    await this.driver.findElement(this.newPerson).isDisplayed();
+  }
 }

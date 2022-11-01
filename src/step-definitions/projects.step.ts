@@ -9,8 +9,7 @@ import { NewProjectPage } from "../page/new_project.page";
 import { Projects } from "../page/projects.page";
 import { ProjectTemplatesPage } from "../page/project_template.page";
 
-// var { setDefaultTimeout } = require("cucumber");
-// setDefaultTimeout(60 * 1000);
+
 
 let driver: WebDriver;
 
@@ -31,13 +30,12 @@ Before(async function (this: World) {
 Given(/^User is on start page/, async function (this: World) {
   let project = new Projects(driver);
   console.log("Wait for projects page displayed");
-  await project.waitForProjectsPageDisplayed();
+  // await project.waitForProjectsPageDisplayed();
 });
 
 When(/^User open on Jira Software/, async function (this: World) {
   let project = new Projects(driver);
   await project.openJiraSoftware();
-  await driver.sleep(3000);
 });
 
 When(/^User select Project from header menu/, async function (this: World) {
@@ -46,7 +44,7 @@ When(/^User select Project from header menu/, async function (this: World) {
 });
 
 When(
-  /^User select Create Project via the navigation bar on project list page/,
+  /^User select Create Project/,
   async function (this: World) {
     let project = new Projects(driver);
     await project.clickCreateProjectFromHeader();
@@ -94,7 +92,7 @@ When(
 );
 
 When(
-  /^User select the Create project button on the bottom of the project create page/,
+  /^User select the Create project button in the project create page/,
   async function (this: World) {
     let createProjectPage = new ProjectCreatePage(driver);
     await createProjectPage.clickCreateProjectBtn();

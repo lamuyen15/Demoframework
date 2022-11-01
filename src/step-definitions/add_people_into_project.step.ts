@@ -1,4 +1,4 @@
-import { Given, When, World } from "cucumber";
+import { Given, Then, When, World } from "cucumber";
 import { WebDriver } from "selenium-webdriver";
 import { addPeoPleProjectPage } from '../page/access.page';
 
@@ -42,10 +42,11 @@ When(
 );
 
 When(
-  /^User enter people with name "([^"]*)"/,
-  async function (this: World, Address: string) {
+  /^User enter people with name "hung.phan@evizi.com"/,
+  async function (this: World) {
     addPeopleProject = new addPeoPleProjectPage(this.driver);
-    await addPeopleProject.setName(Address);
+    await addPeopleProject.waitForAddressFieldDisplayed();
+    await addPeopleProject.setName();
   }
 );
 
@@ -62,3 +63,7 @@ When(/^User select Add button/, async function (this: World) {
   await addPeopleProject.selectAddBtn();
 });
 
+Then(/^The new person "Hung Phan Hai Dao" displays/,async function(this:World){
+  addPeopleProject = new addPeoPleProjectPage(this.driver);
+  await addPeopleProject.newPersonDisplays();
+})

@@ -4,13 +4,13 @@ Feature: Project
     Given User is on start page
     When User open on Jira Software 
     And User select Project from header menu
-    And User select Create Project via the navigation bar on project list page
+    And User select Create Project 
     And User open Software Development on Projects template page
     And User select Scrum template and Use template button
     And User select a team-managed project button
     And User create project with name "demoproject10" 
     And User choose Open on the Access dropdown list
-    And User select the Create project button on the bottom of the project create page
+    And User select the Create project button in the project create page
     Then New project "demoproject10" displays
 
 
@@ -28,12 +28,13 @@ Feature: Project
   #   Then The message about remove project displays
 
 
-Scenario: PRO-04: Verify that people can be added into the project
-    Given User is on Project page
-    When User select "practice-projectTS" on the record of the result
-    And User select Project Setting on the left of navigation bar
-    And User choose Access Item on the left of navigation bar
-    And User select Add people button on the right of top page
-    And User enter people with name "hung.phan@evizi.com"
-    # And User choose Administrator on the Role dropdown list
-    # And User select Add button
+# Scenario: PRO-04: Verify that people can be added into the project
+#     Given User is on Project page
+#     When User select "practice-projectTS" on the record of the result
+#     And User select Project Setting on the left of navigation bar
+#     And User choose Access Item on the left of navigation bar
+#     And User select Add people button on the right of top page
+#     And User enter people with name "hung.phan@evizi.com"
+#     And User choose Administrator on the Role dropdown list
+#     And User select Add button
+#     Then The new person "Hung Phan Hai Dao" displays
