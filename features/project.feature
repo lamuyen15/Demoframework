@@ -41,10 +41,10 @@ Feature: Project
 
 Scenario:Verify that user can open the recent project from the system
 Given User is on Jira Software page
-When User open Project from header menu
-And User select the recent project with name "practice-projectTS"
-And User navigates to the recent project page
-Then User is on "practice-projectTS" page
+# When User open Project from header menu
+# And User select the recent project with name "practice-projectTS"
+# And User navigates to the recent project page
+# Then User is on "practice-projectTS" page
 
 
 
