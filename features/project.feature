@@ -28,13 +28,23 @@ Feature: Project
   #   Then The message about remove project displays
 
 
-Scenario: PRO-04: Verify that people can be added into the project
-    Given User is on Project page
-    When User select "practice-projectTS" on the record of the result
-    And User select Project Setting on the left of navigation bar
-    And User choose Access Item on the left of navigation bar
-    And User select Add people button on the right of top page
-    And User enter people with name "hung.phan@evizi.com"
-    And User choose Administrator on the Role dropdown list
-    And User select Add button
-    Then The new person "Hung Phan Hai Dao" displays
+# Scenario: PRO-04: Verify that people can be added into the project
+#     Given User is on Project page
+#     When User select "practice-projectTS" on the record of the result
+#     And User select Project Setting on the left of navigation bar
+#     And User choose Access Item on the left of navigation bar
+#     And User select Add people button on the right of top page
+#     And User enter people with name "hung.phan@evizi.com"
+#     And User choose Administrator on the Role dropdown list
+#     And User select Add button
+#     Then The new person "Hung Phan Hai Dao" displays
+
+Scenario:Verify that user can open the recent project from the system
+Given User is on Jira Software page
+When User open Project from header menu
+And User select the recent project with name "practice-projectTS"
+And User navigates to the recent project page
+Then User is on "practice-projectTS" page
+
+
+
