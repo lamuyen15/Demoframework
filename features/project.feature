@@ -26,6 +26,12 @@ Feature: Project
   #   And User select Delete permanently on the dropdown list
   #   And User choose Delete button on the message box
   #   Then The message about remove project displays
+ 
+
+#  Scenario:PRO_03: Verify that user can open the recent project from the system
+# Given User is on Projects page
+# When User select the recent project with name "demoproject10"
+# Then User is on "demoproject10" page
 
 
 # Scenario: PRO-04: Verify that people can be added into the project
@@ -39,10 +45,6 @@ Feature: Project
 #     And User select Add button
 #     Then The new person "Hung Phan Hai Dao" displays
 
-Scenario:Verify that user can open the recent project from the system
-Given User is on Projects page
-When User select the recent project with name "demoproject10"
-Then User is on "demoproject10" page
 
 
 
