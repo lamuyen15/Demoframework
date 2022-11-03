@@ -38,3 +38,11 @@ Feature: Project
 #     And User choose Administrator on the Role dropdown list
 #     And User select Add button
 #     Then The new person "Hung Phan Hai Dao" displays
+
+Scenario:Verify that user can open the recent project from the system
+Given User is on Projects page
+When User select the recent project with name "demoproject10"
+Then User is on "demoproject10" page
+
+
+

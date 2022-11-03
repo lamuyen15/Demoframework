@@ -66,7 +66,6 @@ export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
       .findElement(this.emailAddressField)
       .sendKeys("hung.phan@evizi.com");
     await this.driver.sleep(3000);
-    // await this.waitUntilElementLoadedAndDisplayed(this.emailAddressField);
     await this.driver.findElement(this.nameOfPeopleField).click();
   }
 
@@ -79,6 +78,7 @@ export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
   }
 
   public async newPersonDisplays() {
+    await this.driver.sleep(3000);
     await this.driver.findElement(this.newPerson).isDisplayed();
   }
 }
