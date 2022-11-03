@@ -1,25 +1,39 @@
-import { By, WebDriver } from 'selenium-webdriver';
-import { SeleniumWebdriverWrapper } from './seleniumWebdriverWrapper';
-export class recentProjectPage extends SeleniumWebdriverWrapper{
+import { By, WebDriver } from "selenium-webdriver";
+import { SeleniumWebdriverWrapper } from "./seleniumWebdriverWrapper";
+export class recentProjectPage extends SeleniumWebdriverWrapper {
+  //elements for recent project
 
-    //elements for recent project
-    showProductBtn = By.xpath(`//button[.='Show all products']`);
-    JiraSoftwareBtn = By.xpath(
-      `//button[div[starts-with(@data-testid,"start-product__JIRA_SOFTWARE")]]`
-    );
-  
-    projectTopHeaderBtn = By.xpath(
-      `//div[@id='ak-jira-navigation']//button[.='Projects']`
-    ); 
- constructor(driver: WebDriver) {
+  projectTopHeaderBtn = By.xpath(
+    `//div[@id='ak-jira-navigation']//button[.='Projects']`
+  );
+  projectAvailableBtn = By.xpath(
+    ` //div[text()='Recent']//following-sibling::a[contains(@href,'/projects/DEM/')]`
+  );
+  nameOfTheRecentProject=By.xpath(`//span[h2[.='demoproject10']]//parent::div`);
+
+  constructor(driver: WebDriver) {
     super(driver);
   }
-  public async selectShowAllProducts() {
-    await this.driver.findElement(this.showProductBtn).click();
+  public async openHeaderMenu(header: String) {
+    switch (header) {
+      case "Project":
+        await this.driver.findElement(this.projectTopHeaderBtn).click();
+        break;
+      default:
+        break;
+    }
   }
 
-  public async selectJiraSoftware() {
-    await this.driver.findElement(this.JiraSoftwareBtn).click();
+  public async clickRecentProjectFromHeader() {
+    await this.openHeaderMenu("Project");
+    await this.driver.sleep(4000);
   }
 
+  public async clickTheRecentProject(){
+    await this.driver.findElement(this.projectAvailableBtn).click();
+  }
+
+  public async theRecentProjectDisplay(){
+    await this.driver.findElement(this.nameOfTheRecentProject).isDisplayed();
+  }
 }

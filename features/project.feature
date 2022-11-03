@@ -40,11 +40,9 @@ Feature: Project
 #     Then The new person "Hung Phan Hai Dao" displays
 
 Scenario:Verify that user can open the recent project from the system
-Given User is on Jira Software page
-# When User open Project from header menu
-# And User select the recent project with name "practice-projectTS"
-# And User navigates to the recent project page
-# Then User is on "practice-projectTS" page
+Given User is on Projects page
+When User select the recent project with name "demoproject10"
+Then User is on "demoproject10" page
 
 
 

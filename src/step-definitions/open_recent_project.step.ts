@@ -1,28 +1,21 @@
-import { Before, BeforeAll, Given, When, World } from "cucumber";
-import { Builder, WebDriver } from "selenium-webdriver";
-import { Constants } from "../common/constants";
-import { Login } from "../page/login.page";
+import {  Given, Then, When, World } from "cucumber";
+import {WebDriver } from "selenium-webdriver";
+import { NewProjectPage } from "../page/new_project.page";
 import { recentProjectPage } from "../page/open_recent_project.page";
 
 
 let driver: WebDriver;
-BeforeAll(async function () {
-    driver = new Builder().forBrowser("chrome").build();
-    await driver.get(Constants.LOGIN_URL);
-    let loginPage = new Login(driver);
-    await loginPage.setUserName(Constants.DEFAULT_USR);
-    await loginPage.setUserPassword(Constants.DEFAULT_PASSWORD);
+let recentProject :recentProjectPage;
+  Given(/^User is on Projects page/, async function (this: World) {
+    recentProject = new recentProjectPage(this.driver);
+    await recentProject.clickRecentProjectFromHeader();
   });
-  
-  Before(async function (this: World) {
-    if (!this.driver) {
-      this.driver = driver;
-    }
-  });
+When(/^User select the recent project with name "demoproject10"/,async function(this:World){
+  recentProject= new recentProjectPage(this.driver);
+  await recentProject.clickTheRecentProject();
+});
+Then(/^User is on "demoproject10" page/,async function(this:World){
+  recentProject=new recentProjectPage(this.driver);
+  await recentProject.theRecentProjectDisplay();
 
-  Given(/^User is on Jira Software page/, async function (this: World) {
-    let recentProject = new recentProjectPage(driver);
-    await recentProject.selectShowAllProducts();
-    await recentProject.selectJiraSoftware();
-    
-  });
+});
