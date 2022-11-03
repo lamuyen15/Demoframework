@@ -1,6 +1,5 @@
 import {  Given, Then, When, World } from "cucumber";
 import {WebDriver } from "selenium-webdriver";
-import { NewProjectPage } from "../page/new_project.page";
 import { recentProjectPage } from "../page/open_recent_project.page";
 
 
