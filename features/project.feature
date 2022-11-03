@@ -28,23 +28,27 @@ Feature: Project
   #   Then The message about remove project displays
  
 
- Scenario:PRO_03: Verify that user can open the recent project from the system
-Given User is on Projects page
-When User select the recent project with name "demoproject10"
-Then User is on "demoproject10" page
+  #  Scenario:PRO_03: Verify that user can open the recent project from the system
+  #   Given User is on Projects page
+  #   When User select the recent project with name "demoproject10"
+  #   Then User is on "demoproject10" page
 
 
-# Scenario: PRO-04: Verify that people can be added into the project
-#     Given User is on Project page
-#     When User select "practice-projectTS" on the record of the result
-#     And User select Project Setting on the left of navigation bar
-#     And User choose Access Item on the left of navigation bar
-#     And User select Add people button on the right of top page
-#     And User enter people with name "hung.phan@evizi.com"
-#     And User choose Administrator on the Role dropdown list
-#     And User select Add button
-#     Then The new person "Hung Phan Hai Dao" displays
+  # Scenario: PRO-04: Verify that people can be added into the project
+  #   Given User is on Project page
+  #   When User select "practice-projectTS" on the record of the result
+  #   And User select Project Setting on the left of navigation bar
+  #   And User choose Access Item on the left of navigation bar
+  #   And User select Add people button on the right of top page
+  #   And User enter people with name "hung.phan@evizi.com"
+  #   And User choose Administrator on the Role dropdown list
+  #   And User select Add button
+  #   Then The new person "Hung Phan Hai Dao" displays
 
 
-
-
+  Scenario: PRO-05: Verify that user can search the board of the project
+    Given User open Project page
+    When User select View All Projects on project list page
+    And User choose "practice-projectTS" on the record of result
+    And User enter "create 10-15TC" into the search the board field
+    Then The board "create 10-15TC" displays
