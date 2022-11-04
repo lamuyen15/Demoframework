@@ -46,9 +46,9 @@ Feature: Project
   #   Then The new person "Hung Phan Hai Dao" displays
 
 
-  Scenario: PRO-05: Verify that user can search the board of the project
-    Given User open Project page
-    When User select View All Projects on project list page
-    And User choose "practice-projectTS" on the record of result
-    And User enter "create 10-15TC" into the search the board field
-    Then The board "create 10-15TC" displays
+  # Scenario: PRO-05: Verify that user can search the board of the project
+  #   Given User open Project page
+  #   When User select View All Projects on project list page
+  #   And User choose "practice-projectTS" on the record of result
+  #   And User enter "create 10-15TC" into the search the board field
+  #   Then The board "create 10-15TC" displays
