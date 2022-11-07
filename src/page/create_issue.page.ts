@@ -49,10 +49,9 @@ export class createIssuePage extends SeleniumWebdriverWrapper {
   public async openCreateIssueField() {
     await this.driver.findElement(this.plusBtn).click();
   }
-  public async enterIssue(nameIssue:string) {
+  public async enterIssue(nameIssue: string) {
     await this.driver.sleep(4000);
     await this.driver.findElement(this.summaryField).sendKeys(nameIssue);
-   
   }
   public async clickCreateBtn() {
     await this.driver.findElement(this.createBtn).click();
@@ -60,6 +59,5 @@ export class createIssuePage extends SeleniumWebdriverWrapper {
   public async newIssueDisplay() {
     await this.driver.sleep(2000);
     await this.driver.findElement(this.issueCreated).isDisplayed();
- 
   }
 }
