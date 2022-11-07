@@ -1,6 +1,6 @@
 import { Given, Then, When, World } from "cucumber";
 import { WebDriver } from "selenium-webdriver";
-import { addPeoPleProjectPage } from '../page/access.page';
+import { addPeoPleProjectPage } from "../page/access.page";
 
 let driver: WebDriver;
 let addPeopleProject: addPeoPleProjectPage;
@@ -18,12 +18,12 @@ When(
   }
 );
 When(
-    /^User select Project Setting on the left of navigation bar/,
-    async function (this: World) {
-      addPeopleProject = new addPeoPleProjectPage(this.driver);
-      await addPeopleProject.selectProjectSetting();
-    }
-  );
+  /^User select Project Setting on the left of navigation bar/,
+  async function (this: World) {
+    addPeopleProject = new addPeoPleProjectPage(this.driver);
+    await addPeopleProject.selectProjectSetting();
+  }
+);
 
 When(
   /^User choose Access Item on the left of navigation bar/,
@@ -63,8 +63,11 @@ When(/^User select Add button/, async function (this: World) {
   await addPeopleProject.selectAddBtn();
 });
 
-Then(/^The new person "Hung Phan Hai Dao" displays/,async function(this:World){
-  addPeopleProject = new addPeoPleProjectPage(this.driver);
-  
-  await addPeopleProject.newPersonDisplays();
-})
+Then(
+  /^The new person "Hung Phan Hai Dao" displays/,
+  async function (this: World) {
+    addPeopleProject = new addPeoPleProjectPage(this.driver);
+
+    await addPeopleProject.newPersonDisplays();
+  }
+);

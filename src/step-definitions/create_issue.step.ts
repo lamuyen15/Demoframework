@@ -1,42 +1,46 @@
-import { Given, When, World } from "cucumber";
-import { WebDriver } from "selenium-webdriver";
+import { Given, Then, When, World } from "cucumber";
+import { createIssuePage } from "../page/create_issue.page";
 
-let driver: WebDriver;
+
+let createIssue :  createIssuePage;
 
 Given(/^User is on Jira start page/, async function (this: World) {
-  let createIssue = new createIssuePage(driver);
+  createIssue = new createIssuePage(this.driver);
   await createIssue.openJiraPage();
 });
 
 When(/^User click on Projects/, async function (this: World) {
-  let createIssue = new createIssuePage(driver);
+  createIssue = new createIssuePage(this.driver);
   await createIssue.openProject();
 });
 
 When(/^User select View All Projects Item/, async function (this: World) {
-  let createIssue = new createIssuePage(driver);
+   createIssue = new createIssuePage(this.driver);
   await createIssue.openViewAll();
 });
 When(
   /^User select projectTS-practice on the record/,
   async function (this: World) {
-    let createIssue = new createIssuePage(driver);
-    await createIssue.openProject();
+   createIssue = new createIssuePage(this.driver);
+    await createIssue.openProjectInTheRecord();
   }
 );
 When(
-  /^User click on the  "+ Create Issue" at "TO DO" column/,
+  /^User click on the Create button from Header/,
   async function (this: World) {
-    let createIssue = new createIssuePage(driver);
+    createIssue = new createIssuePage(this.driver);
     await createIssue.openCreateIssueField();
   }
 );
-When(/^User enter "([^"]*)"/, async function (this: World, nameIssue: string) {
-  let createIssue = new createIssuePage(driver);
-  await createIssue.openCreateIssueField(nameIssue);
+When(/^User enter "([^"]*)" into Summary field/, async function (this: World, nameIssue: string) {
+  createIssue = new createIssuePage(this.driver);
+  await createIssue.enterIssue(nameIssue);
 });
-When (/^User Press keyboard Enter/,async function(this:World){
-    let createIssue = new createIssuePage(driver);
-    await createIssue.pressKeyBoard();
+When (/^User click Create button/,async function(this:World){
+    createIssue = new createIssuePage(this.driver);
+    await createIssue.clickCreateBtn();
 })  
-Then ()
+Then (/^The issue "to do exercise" displays/,async function(this:World){
+  createIssue = new createIssuePage(this.driver);
+  await createIssue.newIssueDisplay();
+})

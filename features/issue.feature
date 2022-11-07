@@ -6,7 +6,8 @@ Given User is on Jira start page
 When User click on Projects
 And User select View All Projects Item
 And User select projectTS-practice on the record 
-And User click on the  "+ Create Issue" at "TO DO" column
-And User enter "to do exercise"
-And User Press keyboard Enter
-Then the issue "to do exercise" displays
+And User click on the Create button from Header
+And User enter "to do exercise" into Summary field
+And User click Create button
+Then The issue "to do exercise" displays
+
