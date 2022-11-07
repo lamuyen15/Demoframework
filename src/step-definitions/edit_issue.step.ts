@@ -26,19 +26,15 @@ When(
     await editIssue.selectIssue();
   }
 );
-When(/^User enter "([^"]*)" into the "What need to be done" field /, async function(this:World,issue:string){
+When(/^User enter "([^"]*)" into the Description field/, async function(this:World, issue:string){
     editIssue = new editIssuePage(this.driver);
     await editIssue.updateIssue(issue);
 });
-When(/^User click on "Check mark" icon /,async function (this:World){
+When (/^User click on Save button/,async function(this:World){
     editIssue = new editIssuePage(this.driver);
-    await editIssue.clickCheckMarkBtn();
+    await editIssue.clickSaveBtn();
 });
-When (/^User select Close button/,async function(this:World){
-    editIssue = new editIssuePage(this.driver);
-    await editIssue.clickCloseBtn();
-});
-Then(/^The name of issue has been changed/,async function(this:World){
+Then(/^The description "to prepare writing TC" displays/,async function(this:World){
     editIssue = new editIssuePage(this.driver);
     await editIssue.issueDisplays();
 })
