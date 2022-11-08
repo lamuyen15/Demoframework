@@ -39,10 +39,10 @@ When(
     await removeIssue.selectDeleteBtn();
   }
 );
-// Then(
-//   /^The issue "using Xpath" is not display in "TO DO" column/,
-//   async function (this: World) {
-//     removeIssue = new removeIssuePage(this.driver);
-//     await removeIssue.issueIsNotDisplays();
-//   }
-// );
+Then(
+  /^The issue "using Xpath" is not display in "TO DO" column/,
+  async function (this: World) {
+    removeIssue = new removeIssuePage(this.driver);
+    await removeIssue.issueIsNotDisplays();
+  }
+);

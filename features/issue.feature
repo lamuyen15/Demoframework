@@ -28,4 +28,4 @@ And Users click "using Xpath" issue of "TO DO" column
 And Users select More button
 And Users select Delete Item
 And Users select Delete button in the message box
-# Then The issue "using Xpath" is not display in "TO DO" column
+Then The issue "using Xpath" is not display in "TO DO" column

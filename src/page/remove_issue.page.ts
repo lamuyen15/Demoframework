@@ -1,24 +1,28 @@
 import { By, WebDriver } from "selenium-webdriver";
 import { SeleniumWebdriverWrapper } from "./seleniumWebdriverWrapper";
 
-export class removeIssuePage extends SeleniumWebdriverWrapper{
-    //element for remove issue
-    showProductBtn = By.xpath(`//button[.='Show all products']`);
-    JiraSoftwareBtn = By.xpath(
-      `//button[div[starts-with(@data-testid,"start-product__JIRA_SOFTWARE")]]`
-    );
-  
-    projectTopHeaderBtn = By.xpath(
-      `//div[@id='ak-jira-navigation']//button[.='Projects']`
-    );
-  
-    viewAllProjects = By.xpath(`//div[@role='group']//a[@href='/jira/projects']`);
-    nameProject = By.xpath(`//tr//td[.='practice-projectTS']`);
-    issueOfToDoColumn=By.xpath(`//div[div[.='using Xpath']]`);
-    moreBtn=By.xpath(`//button[@data-testid='issue-meatball-menu.ui.dropdown-trigger.button']`);
-    deleteItem=By.xpath(`//button[.='Delete']`)
-    deleteBtn=By.xpath(`//button[@data-testid='issue.views.issue-base.foundation.issue-actions.delete-issue.confirm-button']`)
-      //method of create issue
+export class removeIssuePage extends SeleniumWebdriverWrapper {
+  //element for remove issue
+  showProductBtn = By.xpath(`//button[.='Show all products']`);
+  JiraSoftwareBtn = By.xpath(
+    `//button[div[starts-with(@data-testid,"start-product__JIRA_SOFTWARE")]]`
+  );
+
+  projectTopHeaderBtn = By.xpath(
+    `//div[@id='ak-jira-navigation']//button[.='Projects']`
+  );
+
+  viewAllProjects = By.xpath(`//div[@role='group']//a[@href='/jira/projects']`);
+  nameProject = By.xpath(`//tr//td[.='practice-projectTS']`);
+  issueOfToDoColumn = By.xpath(`//div[div[.='using Xpath']]`);
+  moreBtn = By.xpath(
+    `//button[@data-testid='issue-meatball-menu.ui.dropdown-trigger.button']`
+  );
+  deleteItem = By.xpath(`//button[.='Delete']`);
+  deleteBtn = By.xpath(
+    `//button[@data-testid='issue.views.issue-base.foundation.issue-actions.delete-issue.confirm-button']`
+  );
+  //method of create issue
 
   constructor(driver: WebDriver) {
     super(driver);
@@ -49,5 +53,12 @@ export class removeIssuePage extends SeleniumWebdriverWrapper{
   }
   public async selectDeleteBtn() {
     await this.driver.findElement(this.deleteBtn).click();
+  }
+  public async issueIsNotDisplays() {
+    try {
+      return this.driver.findElement(this.issueOfToDoColumn).isDisplayed();
+    } catch {
+      return false;
+    }
   }
 }
