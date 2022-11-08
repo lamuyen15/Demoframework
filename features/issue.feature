@@ -16,6 +16,6 @@ Given Users open Jira page
 When User select View All Projects from Projects 
 And User select projectTS-practice
 And User click "create TC for module user" issue of "TO DO" column
-And User enter "to prepare writing TC" into the Description field 
+And User enter "to prepare writing TC" into the Add Comments field 
 And User click on Save button
-Then The description "to prepare writing TC" displays
+Then The comment "to prepare writing TC" displays

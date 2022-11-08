@@ -1,3 +1,4 @@
+import assert from "assert";
 import { Given, Then, When, World } from "cucumber";
 import { WebDriver } from "selenium-webdriver";
 import { editIssuePage } from "../page/edit_issue.page";
@@ -26,15 +27,23 @@ When(
     await editIssue.selectIssue();
   }
 );
-When(/^User enter "([^"]*)" into the Description field/, async function(this:World, issue:string){
+When(
+  /^User enter "([^"]*)" into the Add Comments field/,
+  async function (this: World, issue: string) {
     editIssue = new editIssuePage(this.driver);
     await editIssue.updateIssue(issue);
+  }
+);
+When(/^User click on Save button/, async function (this: World) {
+  editIssue = new editIssuePage(this.driver);
+  await editIssue.clickSaveBtn();
 });
-When (/^User click on Save button/,async function(this:World){
-    editIssue = new editIssuePage(this.driver);
-    await editIssue.clickSaveBtn();
-});
-Then(/^The description "to prepare writing TC" displays/,async function(this:World){
+
+Then(
+  /^The comment "to prepare writing TC" displays/,
+  async function (this: World) {
     editIssue = new editIssuePage(this.driver);
     await editIssue.issueDisplays();
-})
+ 
+  }
+);
