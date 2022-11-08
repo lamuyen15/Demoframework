@@ -8,7 +8,10 @@ import {
 } from "selenium-webdriver";
 import { elementWaitTimeOutValue } from "../common/constants";
 
+
 export class SeleniumWebdriverWrapper {
+  
+  
   constructor(protected readonly driver: WebDriver) {}
 
   public async waitUntilElementLoadedAndDisplayed(
@@ -48,4 +51,7 @@ export class SeleniumWebdriverWrapper {
       elementWaitTimeOutValue,
       `Element not invisible: ${JSON.stringify(locator)}`
     );
+
+
+
 }
