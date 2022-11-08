@@ -4,9 +4,11 @@ import { Login } from "../page/login.page";
 import { Home } from "../page/home.page";
 import assert from "assert";
 import { World } from "cucumber";
+import { SeleniumWebdriverWrapper } from "../page/seleniumWebdriverWrapper";
 
 var { setDefaultTimeout } = require("cucumber");
 setDefaultTimeout(60 * 1000);
+
 
 @binding()
 export class LoginAccountSteps {
@@ -14,6 +16,7 @@ export class LoginAccountSteps {
   public async navigateToWebsite(this: World, url: string) {
     this.driver = new Builder().forBrowser("chrome").build();
     await this.driver.get(`${url}`);
+
   }
 
   @when(/^User enter "([^"]*)" and click continue button/)

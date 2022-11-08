@@ -52,6 +52,8 @@ export class SeleniumWebdriverWrapper {
       `Element not invisible: ${JSON.stringify(locator)}`
     );
 
-
+   maximizeWindow = async () => {
+      await this.driver.manage().window().maximize();
+    };
 
 }
