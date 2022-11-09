@@ -20,12 +20,12 @@ Verify that User can perform function of Issue module
 # And User click on Save button
 # Then The comment "to prepare writing TC" displays
 
-Scenario: ISS-05:Verify that the issue can be removed from the column
-Given Users is on Jira page
-When Users click Project and View All Projects Item
-And Users open projectTS-practice
-And Users click "using Xpath" issue of "TO DO" column
-And Users select More button
-And Users select Delete Item
-And Users select Delete button in the message box
-Then The issue "using Xpath" is not display in "TO DO" column
+# Scenario: ISS-05:Verify that the issue can be removed from the column
+# Given Users is on Jira page
+# When Users click Project and View All Projects Item
+# And Users open projectTS-practice
+# And Users click "using Xpath" issue of "TO DO" column
+# And Users select More button
+# And Users select Delete Item
+# And Users select Delete button in the message box
+# Then The issue "using Xpath" is not display in "TO DO" column
