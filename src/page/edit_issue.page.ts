@@ -18,8 +18,7 @@ export class editIssuePage extends SeleniumWebdriverWrapper {
   commentField=By.xpath(`//input[@placeholder="Add a comment…"]`)
   saveBtn = By.xpath(`//button[@data-testid='comment-save-button']`);
   issueUpdated = By.xpath(`//div[p[.='to prepare writing TC']]`);
-  // newCommentField=By.xpath(`//div[@data-testid="click-wrapper"]//input[@data-testid="media-picker-file-input"]`);
-  newCommentField=By.xpath(`//div[@data-testid="click-wrapper"]//div[div[input[@data-testid="media-picker-file-input"]]]//p`)
+  newCommentField=By.xpath(`//div[@data-testid='click-wrapper']//div[div[input[@data-testid='media-picker-file-input']]]//p`)
   
   //method of create issue
 
