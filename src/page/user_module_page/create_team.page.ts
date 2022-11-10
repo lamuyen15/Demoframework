@@ -13,6 +13,7 @@ export class createTeamPage extends SeleniumWebdriverWrapper {
   nameTeamField = By.xpath(`//input[@name='teamName']`);
   inviteField = By.xpath(`//input[@id='react-select-AddMemberToTeam-input']`);
   createTeamBtn = By.xpath(`//button[@type='submit']`);
+  messageTeamCreated=By.xpath(`//div[@role='alert']`);
   //method of create issue
 
   constructor(driver: WebDriver) {
@@ -28,20 +29,26 @@ export class createTeamPage extends SeleniumWebdriverWrapper {
   }
   public async selectPeopleItem() {
     await this.driver.findElement(this.peopleItem).click();
+    await this.driver.sleep(1000);
   }
   public async selectCreateTeam() {
     await this.driver.findElement(this.createTeamItem).click();
   }
 
   public async enterNameTeam(nameTeam: string) {
-    await this.driver.findElement(this.createTeamItem).click();
-    await this.driver.findElement(this.createTeamItem).sendKeys(nameTeam);
+    await this.driver.sleep(3000);
+    await this.driver.findElement(this.nameTeamField).sendKeys(nameTeam);
   }
   public async enterUserInvited(userAddress: string) {
     await this.driver.findElement(this.inviteField).click();
+    await this.driver.sleep(2000);
     await this.driver.findElement(this.inviteField).sendKeys(userAddress);
   }
   public async selectUser() {
     await this.driver.findElement(this.createTeamBtn).click();
+    await this.driver.sleep(2000);
+  }
+  public async messageCreatedTeamDisplays() {
+    await this.driver.findElement(this.messageTeamCreated).isDisplayed();
   }
 }

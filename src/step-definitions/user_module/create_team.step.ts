@@ -39,7 +39,7 @@ When(
     await createTeam.selectUser();
   }
 );
-// Then(/^User navigates to the team created page/, async function (this: World) {
-//   createTeam = new createTeamPage(this.driver);
-//   await createTeam.teamPageDisplays();
-// });
+Then(/^The message about "Team project 1" is created successfully/, async function (this: World) {
+  createTeam = new createTeamPage(this.driver);
+  await createTeam.messageCreatedTeamDisplays();
+});
