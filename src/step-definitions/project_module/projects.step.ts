@@ -13,6 +13,10 @@ import { NewProjectPage } from "../../page/project_module_page/new_project.page"
 
 
 let driver: WebDriver;
+let project: Projects;
+let projects :ProjectTemplatesPage;
+let projectTemplatePage : ProjectTemplatesPage;
+// let projectPage : NewProjectPage;
 
 BeforeAll(async function () {
   driver = new Builder().forBrowser("chrome").build();
@@ -29,25 +33,25 @@ Before(async function (this: World) {
 });
 
 Given(/^User is on start page/, async function (this: World) {
-  let project = new Projects(driver);
+   project = new Projects(driver);
   console.log("Wait for projects page displayed");
   // await project.waitForProjectsPageDisplayed();
 });
 
 When(/^User open on Jira Software/, async function (this: World) {
-  let project = new Projects(driver);
+   project = new Projects(driver);
   await project.openJiraSoftware();
 });
 
 When(/^User select Project from header menu/, async function (this: World) {
-  let project = new Projects(driver);
+   project = new Projects(driver);
   await project.openHeaderMenu("Projects");
 });
 
 When(
   /^User select Create Project/,
   async function (this: World) {
-    let project = new Projects(driver);
+     project = new Projects(driver);
     await project.clickCreateProjectFromHeader();
   }
 );
@@ -55,15 +59,15 @@ When(
 When(
   /^User open Software Development on Projects template page/,
   async function (this: World) {
-    let project = new ProjectTemplatesPage(driver);
-    await project.openLeftMenu("Software development");
+    projects = new ProjectTemplatesPage(driver);
+    await projects.openLeftMenu("Software development");
   }
 );
 
 When(
   /^User select Scrum template and Use template button/,
   async function (this: World) {
-    let projectTemplatePage = new ProjectTemplatesPage(driver);
+     projectTemplatePage = new ProjectTemplatesPage(driver);
     await projectTemplatePage.clickScrumTemplate();
   }
 );
@@ -85,18 +89,11 @@ When(
 );
 
 When(
-  /^User choose Open on the Access dropdown list/,
-  async function (this: World) {
-    let createProjectPage = new ProjectCreatePage(driver);
-    await createProjectPage.chooseAccess();
-  }
-);
-
-When(
   /^User select the Create project button in the project create page/,
   async function (this: World) {
     let createProjectPage = new ProjectCreatePage(driver);
     await createProjectPage.clickCreateProjectBtn();
+    await this.driver.sleep(8000);
   }
 );
 
