@@ -1,3 +1,4 @@
+import assert from "assert";
 import { Given, Then, When, World } from "cucumber";
 import { searchPeoplePage } from "../../page/user_module_page/search_people.page";
 
@@ -24,5 +25,6 @@ When(/^User select People button/, async function (this: World) {
   });
 Then(/^The user with name "Tien Tran" displays/,async function(this:World){
     searchPeople=new searchPeoplePage(this.driver);
-    await searchPeople.userDisplays();
+    let isSearchPeople = await searchPeople.userDisplays();
+    assert.equal(isSearchPeople,true);
 });

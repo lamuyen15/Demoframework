@@ -1,7 +1,7 @@
 import assert from "assert";
 import { Given, Then, When, World } from "cucumber";
 import { WebDriver } from "selenium-webdriver";
-import { editIssuePage } from "../page/edit_issue.page";
+import { editIssuePage } from "../../page/issue_module_page/edit_issue.page";
 
 let editIssue: editIssuePage;
 Given(/^Users open Jira page/, async function (this: World) {
@@ -43,7 +43,7 @@ Then(
   /^The comment "to prepare writing TC" displays/,
   async function (this: World) {
     editIssue = new editIssuePage(this.driver);
-    await editIssue.issueDisplays();
- 
+    let isEditIssue=await editIssue.issueDisplays();
+    assert.equal(isEditIssue,true);
   }
 );

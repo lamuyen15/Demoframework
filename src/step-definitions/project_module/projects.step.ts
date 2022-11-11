@@ -2,12 +2,13 @@ import assert from "assert";
 import { Before, BeforeAll, World, Given, When, Then } from "cucumber";
 
 import { Builder, WebDriver } from "selenium-webdriver";
-import { Constants } from "../common/constants";
-import { ProjectCreatePage } from "../page/create_project.page";
-import { Login } from "../page/login.page";
-import { NewProjectPage } from "../page/new_project.page";
-import { Projects } from "../page/projects.page";
-import { ProjectTemplatesPage } from "../page/project_template.page";
+import { Constants } from "../../common/constants";
+import { ProjectCreatePage } from "../../page/project_module_page/create_project.page";
+import { Login } from "../../page/login.page";
+import { Projects } from "../../page/project_module_page/projects.page";
+import { ProjectTemplatesPage } from "../../page/project_module_page/project_template.page";
+import { NewProjectPage } from "../../page/project_module_page/new_project.page";
+
 
 
 

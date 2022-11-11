@@ -1,5 +1,6 @@
 import { By, WebDriver } from "selenium-webdriver";
-import { SeleniumWebdriverWrapper } from "./seleniumWebdriverWrapper";
+import { SeleniumWebdriverWrapper } from "../../common/seleniumWebdriverWrapper";
+
 export class recentProjectPage extends SeleniumWebdriverWrapper {
   //elements for recent project
 

@@ -1,6 +1,7 @@
 import { WebDriver } from "selenium-webdriver";
 import { Given, Then, When, World } from "cucumber";
-import { RemoveProjectPage } from "../page/remove_project.page";
+import { RemoveProjectPage } from "../../page/project_module_page/remove_project.page";
+import assert from 'assert';
 
 let driver: WebDriver;
 let removeProject: RemoveProjectPage;
@@ -82,7 +83,8 @@ When(
 Then(
   /^The message about remove project displays/,
   async function (this: World) {
-    let removeProject = new RemoveProjectPage(this.driver);
-    await removeProject.messageDisplay();
+    removeProject = new RemoveProjectPage(this.driver);
+    let isRemoveProject =  await removeProject.messageDisplay();
+    assert.equal(isRemoveProject, true);
   }
 );

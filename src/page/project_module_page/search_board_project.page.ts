@@ -1,5 +1,5 @@
 import { By, WebDriver } from "selenium-webdriver";
-import { SeleniumWebdriverWrapper } from "./seleniumWebdriverWrapper";
+import { SeleniumWebdriverWrapper } from "../../common/seleniumWebdriverWrapper";
 
 export class searchBoardPage extends SeleniumWebdriverWrapper {
   //element of the search board
@@ -13,7 +13,9 @@ export class searchBoardPage extends SeleniumWebdriverWrapper {
 
   nameProject = By.xpath(`//tr//td[.='practice-projectTS']`);
   searchBoardField = By.xpath(`//input[@name='search']`);
-  boardDisplay=By.xpath(`//div[div[(@data-test-id="platform-card.ui.card.actions-section")]]`);
+  boardDisplay = By.xpath(
+    `//div[div[(@data-test-id="platform-card.ui.card.actions-section")]]`
+  );
   //method
   constructor(driver: WebDriver) {
     super(driver);
@@ -32,11 +34,10 @@ export class searchBoardPage extends SeleniumWebdriverWrapper {
     await this.driver.findElement(this.nameProject).click();
   }
 
-  public async enterBoard(nameBoard:string) {
+  public async enterBoard(nameBoard: string) {
     await this.driver.sleep(3000);
     await this.driver.findElement(this.searchBoardField).click();
     await this.driver.findElement(this.searchBoardField).sendKeys(nameBoard);
-    
   }
 
   public async theBoardDisplay() {

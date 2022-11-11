@@ -1,5 +1,5 @@
 import { By, WebDriver } from "selenium-webdriver";
-import { SeleniumWebdriverWrapper } from "../seleniumWebdriverWrapper";
+import { SeleniumWebdriverWrapper } from "../../common/seleniumWebdriverWrapper";
 
 export class searchPeoplePage extends SeleniumWebdriverWrapper {
   //element for remove issue
@@ -42,6 +42,6 @@ export class searchPeoplePage extends SeleniumWebdriverWrapper {
     await this.driver.sleep(2000);
   }
   public async userDisplays() {
-    await this.driver.findElement(this.profileUser).isDisplayed();
+    return this.driver.findElement(this.profileUser).isDisplayed();
   }
 }

@@ -82,6 +82,6 @@ export class RemoveProjectPage {
   }
 
   public async messageDisplay() {
-    await this.driver.findElement(this.messageDisplays).isDisplayed();
+return this.driver.findElement(this.messageDisplays).isDisplayed();
   }
 }

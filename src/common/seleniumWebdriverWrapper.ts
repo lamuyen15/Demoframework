@@ -6,12 +6,9 @@ import {
   WebElement,
   Key,
 } from "selenium-webdriver";
-import { elementWaitTimeOutValue } from "../common/constants";
-
+import { elementWaitTimeOutValue } from "./constants";
 
 export class SeleniumWebdriverWrapper {
-  
-  
   constructor(protected readonly driver: WebDriver) {}
 
   public async waitUntilElementLoadedAndDisplayed(
@@ -52,8 +49,7 @@ export class SeleniumWebdriverWrapper {
       `Element not invisible: ${JSON.stringify(locator)}`
     );
 
-   maximizeWindow = async () => {
-      await this.driver.manage().window().maximize();
-    };
-
+  maximizeWindow = async () => {
+    await this.driver.manage().window().maximize();
+  };
 }

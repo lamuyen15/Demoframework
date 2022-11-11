@@ -5,7 +5,7 @@ Verify that User can perform function of Issue module
 # Given User is on Jira start page
 # When User click on Projects
 # And User select View All Projects Item
-# And User select projectTS-practice on the record 
+# And User open projectTS-practice on the record 
 # And User click on the Create button from Header
 # And User enter "to do exercise" into Summary field
 # And User click Create button

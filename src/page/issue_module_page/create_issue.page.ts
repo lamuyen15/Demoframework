@@ -1,5 +1,5 @@
 import { By, WebDriver } from "selenium-webdriver";
-import { SeleniumWebdriverWrapper } from "./seleniumWebdriverWrapper";
+import { SeleniumWebdriverWrapper } from "../../common/seleniumWebdriverWrapper";
 
 export class createIssuePage extends SeleniumWebdriverWrapper {
   // element of create issue
@@ -56,8 +56,8 @@ export class createIssuePage extends SeleniumWebdriverWrapper {
   public async clickCreateBtn() {
     await this.driver.findElement(this.createBtn).click();
   }
-  public async newIssueDisplay() {
+  public async newIssueDisplays() {
     await this.driver.sleep(2000);
-    await this.driver.findElement(this.issueCreated).isDisplayed();
+    return this.driver.findElement(this.issueCreated).isDisplayed();
   }
 }

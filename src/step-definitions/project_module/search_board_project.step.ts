@@ -1,6 +1,6 @@
 import { Given, Then, When, World } from "cucumber";
 import { WebDriver } from "selenium-webdriver";
-import { searchBoardPage } from "../page/search_board_project.page";
+import { searchBoardPage } from "../../page/project_module_page/search_board_project.page";
 let driver: WebDriver;
 let searchBoard: searchBoardPage;
 Given(/^User open Project page/, async function (this: World) {

@@ -1,5 +1,5 @@
 import { By, WebDriver } from "selenium-webdriver";
-import { SeleniumWebdriverWrapper } from "./seleniumWebdriverWrapper";
+import { SeleniumWebdriverWrapper } from "../../common/seleniumWebdriverWrapper";
 
 export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
   projectTopHeaderBtn = By.xpath(
@@ -24,7 +24,7 @@ export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
   );
   addBtn = By.xpath(`//button[.='Add']`);
   nameOfPeopleField = By.xpath(`//div[contains(@id,'option-0')]`);
-  newPerson=By.xpath(`//td[.="Hưng Phan Đào Hải"]`);
+  newPerson = By.xpath(`//td[.="Hưng Phan Đào Hải"]`);
 
   constructor(driver: WebDriver) {
     super(driver);

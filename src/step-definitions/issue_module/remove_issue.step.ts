@@ -1,5 +1,5 @@
 import { Given, Then, When, World } from "cucumber";
-import { removeIssuePage } from "../page/remove_issue.page";
+import { removeIssuePage } from "../../page/issue_module_page/remove_issue.page";
 
 let removeIssue: removeIssuePage;
 Given(/^Users is on Jira page/, async function (this: World) {

@@ -1,5 +1,6 @@
 import { Given, Then, When, World } from "cucumber";
 import { createTeamPage } from "../../page/user_module_page/create_team.page";
+import assert from "assert";
 
 let createTeam: createTeamPage;
 Given(/^User select JiraSoftware page/, async function (this: World) {
@@ -39,7 +40,11 @@ When(
     await createTeam.selectUser();
   }
 );
-Then(/^The message about "Team project 1" is created successfully/, async function (this: World) {
-  createTeam = new createTeamPage(this.driver);
-  await createTeam.messageCreatedTeamDisplays();
-});
+Then(
+  /^The message about "Team project 1" is created successfully/,
+  async function (this: World) {
+    createTeam = new createTeamPage(this.driver);
+    let isCreatedTeam = await createTeam.messageCreatedTeamDisplays();
+    assert.equal(isCreatedTeam, true);
+  }
+);

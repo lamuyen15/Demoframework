@@ -1,5 +1,5 @@
 import { By, WebDriver } from "selenium-webdriver";
-import { SeleniumWebdriverWrapper } from "../seleniumWebdriverWrapper";
+import { SeleniumWebdriverWrapper } from "../../common/seleniumWebdriverWrapper";
 
 export class createTeamPage extends SeleniumWebdriverWrapper {
   //element for remove issue
@@ -13,7 +13,7 @@ export class createTeamPage extends SeleniumWebdriverWrapper {
   nameTeamField = By.xpath(`//input[@name='teamName']`);
   inviteField = By.xpath(`//input[@id='react-select-AddMemberToTeam-input']`);
   createTeamBtn = By.xpath(`//button[@type='submit']`);
-  messageTeamCreated=By.xpath(`//div[@role='alert']`);
+  messageTeamCreated = By.xpath(`//div[@role='alert']`);
   //method of create issue
 
   constructor(driver: WebDriver) {
@@ -49,6 +49,6 @@ export class createTeamPage extends SeleniumWebdriverWrapper {
     await this.driver.sleep(2000);
   }
   public async messageCreatedTeamDisplays() {
-    await this.driver.findElement(this.messageTeamCreated).isDisplayed();
+    return this.driver.findElement(this.messageTeamCreated).isDisplayed();
   }
 }
