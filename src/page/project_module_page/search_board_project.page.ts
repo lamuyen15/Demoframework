@@ -3,6 +3,10 @@ import { SeleniumWebdriverWrapper } from "../../common/seleniumWebdriverWrapper"
 
 export class searchBoardPage extends SeleniumWebdriverWrapper {
   //element of the search board
+  showProductBtn = By.xpath(`//button[.='Show all products']`);
+  jiraSoftwareBtn = By.xpath(
+    `//button[div[starts-with(@data-testid,"start-product__JIRA_SOFTWARE")]]`
+  );
 
   projectTopHeaderBtn = By.xpath(
     `//div[@id='ak-jira-navigation']//button[.='Projects']`
@@ -14,13 +18,17 @@ export class searchBoardPage extends SeleniumWebdriverWrapper {
   nameProject = By.xpath(`//tr//td[.='practice-projectTS']`);
   searchBoardField = By.xpath(`//input[@name='search']`);
   boardDisplay = By.xpath(
-    `//div[div[(@data-test-id="platform-card.ui.card.actions-section")]]`
+    `//div[span[.='create 10-15TC']]`
   );
   //method
   constructor(driver: WebDriver) {
     super(driver);
   }
-
+  public async clickJiraSoftware() {
+    await this.driver.findElement(this.showProductBtn).click();
+    await this.driver.sleep(2000);
+    await this.driver.findElement(this.jiraSoftwareBtn).click();
+  }
   public async clickProject() {
     await this.driver.findElement(this.projectTopHeaderBtn).click();
   }
@@ -41,6 +49,8 @@ export class searchBoardPage extends SeleniumWebdriverWrapper {
   }
 
   public async theBoardDisplay() {
-    await this.driver.findElement(this.boardDisplay).isDisplayed;
+    await this.driver.sleep(1000);
+    return this.driver.findElement(this.boardDisplay).isDisplayed();
+
   }
 }

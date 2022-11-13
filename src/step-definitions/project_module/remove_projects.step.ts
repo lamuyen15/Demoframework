@@ -1,14 +1,14 @@
 import { WebDriver } from "selenium-webdriver";
 import { Given, Then, When, World } from "cucumber";
 import { RemoveProjectPage } from "../../page/project_module_page/remove_project.page";
-import assert from 'assert';
+import assert from "assert";
 
 let driver: WebDriver;
 let removeProject: RemoveProjectPage;
 
-Given(/^User is on Project created/, async function (this: World) {
+Given(/^User select Jira page/, async function (this: World) {
   removeProject = new RemoveProjectPage(this.driver);
-  await removeProject.isAtProjectCreated();
+  await removeProject.isAtJiraSoftwarePage();
 });
 
 When(/^User select Project button/, async function (this: World) {
@@ -84,7 +84,7 @@ Then(
   /^The message about remove project displays/,
   async function (this: World) {
     removeProject = new RemoveProjectPage(this.driver);
-    let isRemoveProject =  await removeProject.messageDisplay();
+    let isRemoveProject = await removeProject.messageDisplay();
     assert.equal(isRemoveProject, true);
   }
 );

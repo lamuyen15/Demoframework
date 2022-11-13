@@ -1,11 +1,16 @@
 import { Given, Then, When, World } from "cucumber";
 import { WebDriver } from "selenium-webdriver";
 import { addPeoPleProjectPage } from "../../page/project_module_page/access.page";
+import assert from "assert";
 
 let driver: WebDriver;
 let addPeopleProject: addPeoPleProjectPage;
 
-Given(/^User is on Project page/, async function (this: World) {
+Given(/^User select Jira Software page/, async function (this: World) {
+  addPeopleProject = new addPeoPleProjectPage(this.driver);
+  await addPeopleProject.clickJira();
+});
+When(/^User is on Project page/, async function (this: World) {
   addPeopleProject = new addPeoPleProjectPage(this.driver);
   await addPeopleProject.isOnProjectPage();
 });
@@ -50,14 +55,6 @@ When(
   }
 );
 
-When(
-  /^User choose Administrator on the Role dropdown list/,
-  async function (this: World) {
-    addPeopleProject = new addPeoPleProjectPage(this.driver);
-    await addPeopleProject.selectAdministrator();
-  }
-);
-
 When(/^User select Add button/, async function (this: World) {
   addPeopleProject = new addPeoPleProjectPage(this.driver);
   await addPeopleProject.selectAddBtn();
@@ -67,7 +64,7 @@ Then(
   /^The new person "Hung Phan Hai Dao" displays/,
   async function (this: World) {
     addPeopleProject = new addPeoPleProjectPage(this.driver);
-
-    await addPeopleProject.newPersonDisplays();
+    let personDisplays = await addPeopleProject.newPersonDisplays();
+    assert.equal(personDisplays, true);
   }
 );

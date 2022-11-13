@@ -2,10 +2,16 @@ import { By, WebDriver } from "selenium-webdriver";
 import { SeleniumWebdriverWrapper } from "../../common/seleniumWebdriverWrapper";
 
 export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
+  //element for test case add person
+  showProductBtn = By.xpath(`//button[.='Show all products']`);
+  jiraSoftwareBtn = By.xpath(
+    `//button[div[starts-with(@data-testid,"start-product__JIRA_SOFTWARE")]]`
+  );
+
   projectTopHeaderBtn = By.xpath(
     `//div[@id='ak-jira-navigation']//button[.='Projects']`
   );
-  clickViewAllProjects = By.xpath(
+  viewAllProjectsItem = By.xpath(
     `//div[@role='group']//a[@href='/jira/projects']`
   );
   projectPage = By.xpath(`//div[h1[.='Projects']]`);
@@ -25,17 +31,19 @@ export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
   addBtn = By.xpath(`//button[.='Add']`);
   nameOfPeopleField = By.xpath(`//div[contains(@id,'option-0')]`);
   newPerson = By.xpath(`//td[.="Hưng Phan Đào Hải"]`);
-
+  //method for test case add person
   constructor(driver: WebDriver) {
     super(driver);
   }
-
+  public async clickJira() {
+    await this.driver.findElement(this.showProductBtn).click();
+    await this.driver.sleep(2000);
+    await this.driver.findElement(this.jiraSoftwareBtn).click();
+  }
   public async isOnProjectPage() {
-    await this.driver.sleep(3000);
     await this.driver.findElement(this.projectTopHeaderBtn).click();
-    await this.driver.sleep(5000);
-    await this.driver.findElement(this.clickViewAllProjects).click();
-    await this.driver.sleep(5000);
+    await this.driver.findElement(this.viewAllProjectsItem).click();
+    await this.driver.sleep(2000);
   }
 
   public async selectProject() {
@@ -69,16 +77,12 @@ export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
     await this.driver.findElement(this.nameOfPeopleField).click();
   }
 
-  public async selectAdministrator() {
-    await this.driver.findElement(this.roleField).click();
-    await this.driver.findElement(this.administrationItem).click();
-  }
   public async selectAddBtn() {
     await this.driver.findElement(this.addBtn).click();
   }
 
   public async newPersonDisplays() {
     await this.driver.sleep(3000);
-    await this.driver.findElement(this.newPerson).isDisplayed();
+    return this.driver.findElement(this.newPerson).isDisplayed();
   }
 }

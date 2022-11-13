@@ -4,7 +4,10 @@ export class RemoveProjectPage {
 
   //element for remove project page
 
-  projectName = By.xpath(`//h2[text()='demoproject10']`);
+  showProductBtn = By.xpath(`//button[.='Show all products']`);
+  jiraSoftwareBtn = By.xpath(
+    `//button[div[starts-with(@data-testid,"start-product__JIRA_SOFTWARE")]]`
+  );
 
   projectTopHeaderBtn = By.xpath(
     `//div[@id='ak-jira-navigation']//button[.='Projects']`
@@ -16,11 +19,11 @@ export class RemoveProjectPage {
     `//tr[contains(.,'PRJCT')]//span[@role='img']//ancestor::button`
   );
   moveToTrashBtn = By.xpath(`//span[@role='menuitem']//parent::div`);
-  clickMoveBtn = By.xpath(
+  moveBtn = By.xpath(
     ` //span[text()='Move']//ancestor::button[contains(@data-test-id, 'move-to-trash-button')]`
   );
   goToTrashItem = By.xpath(`//a[.='Go to trash']`);
-  clickDeletePermanently = By.xpath(
+  deletePermanently = By.xpath(
     `//span[.='Delete permanently' and @role="menuitem"]`
   );
   deleteBtn = By.xpath(`//button[.='Delete']`);
@@ -33,8 +36,9 @@ export class RemoveProjectPage {
   }
 
   //method for remove project
-  public async isAtProjectCreated() {
-    await this.driver.findElement(this.projectName).isDisplayed();
+  public async isAtJiraSoftwarePage() {
+    await this.driver.findElement(this.showProductBtn).click();
+    await this.driver.findElement(this.jiraSoftwareBtn).click();
   }
 
   public async openProjectFromHeader() {
@@ -57,7 +61,7 @@ export class RemoveProjectPage {
   }
 
   public async selectMoveBtn() {
-    await this.driver.findElement(this.clickMoveBtn).click();
+    await this.driver.findElement(this.moveBtn).click();
     await this.driver.sleep(5000);
   }
 
@@ -72,7 +76,7 @@ export class RemoveProjectPage {
   }
 
   public async selectDelete() {
-    await this.driver.findElement(this.clickDeletePermanently).click();
+    await this.driver.findElement(this.deletePermanently).click();
     await this.driver.sleep(4000);
   }
 
@@ -82,6 +86,6 @@ export class RemoveProjectPage {
   }
 
   public async messageDisplay() {
-return this.driver.findElement(this.messageDisplays).isDisplayed();
+    return this.driver.findElement(this.messageDisplays).isDisplayed();
   }
 }

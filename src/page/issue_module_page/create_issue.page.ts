@@ -4,7 +4,7 @@ import { SeleniumWebdriverWrapper } from "../../common/seleniumWebdriverWrapper"
 export class createIssuePage extends SeleniumWebdriverWrapper {
   // element of create issue
   showProductBtn = By.xpath(`//button[.='Show all products']`);
-  JiraSoftwareBtn = By.xpath(
+  jiraSoftwareBtn = By.xpath(
     `//button[div[starts-with(@data-testid,"start-product__JIRA_SOFTWARE")]]`
   );
 
@@ -30,7 +30,7 @@ export class createIssuePage extends SeleniumWebdriverWrapper {
   public async openJiraPage() {
     await this.driver.findElement(this.showProductBtn).click();
     await this.driver.sleep(2000);
-    await this.driver.findElement(this.JiraSoftwareBtn).click();
+    await this.driver.findElement(this.jiraSoftwareBtn).click();
   }
 
   public async openProject() {

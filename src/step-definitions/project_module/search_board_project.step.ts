@@ -1,10 +1,16 @@
+import assert from "assert";
 import { Given, Then, When, World } from "cucumber";
 import { WebDriver } from "selenium-webdriver";
 import { searchBoardPage } from "../../page/project_module_page/search_board_project.page";
 let driver: WebDriver;
 let searchBoard: searchBoardPage;
-Given(/^User open Project page/, async function (this: World) {
-  let searchBoard = new searchBoardPage(this.driver);
+
+Given(/^User is at Jira Software page/, async function (this: World) {
+  searchBoard = new searchBoardPage(this.driver);
+  await searchBoard.clickJiraSoftware();
+});
+When(/^User open Project page/, async function (this: World) {
+  searchBoard = new searchBoardPage(this.driver);
   await searchBoard.clickProject();
 });
 
@@ -33,6 +39,7 @@ When(
 );
 
 Then(/^The board "create 10-15TC" displays/, async function (this: World) {
-  let searchBoard = new searchBoardPage(this.driver);
-  await searchBoard.theBoardDisplay();
+  searchBoard = new searchBoardPage(this.driver);
+  let boardDisplays = await searchBoard.theBoardDisplay();
+  assert.equal(boardDisplays, true);
 });
