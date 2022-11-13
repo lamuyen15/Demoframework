@@ -14,7 +14,7 @@ export class createIssuePage extends SeleniumWebdriverWrapper {
 
   viewAllProjects = By.xpath(`//div[@role='group']//a[@href='/jira/projects']`);
 
-  nameProject = By.xpath(`//tr//td[.='practice-projectTS']`);
+  nameOfProject = By.xpath(`//tr//td[.='practice-projectTS']`);
   plusBtn = By.xpath(`//button[@id='createGlobalItemIconButton']`);
   summaryField = By.xpath(`//input[@id="summary-field"]`);
   createBtn = By.xpath(
@@ -43,7 +43,7 @@ export class createIssuePage extends SeleniumWebdriverWrapper {
   }
 
   public async openProjectInTheRecord() {
-    await this.driver.findElement(this.nameProject).click();
+    await this.driver.findElement(this.nameOfProject).click();
     await this.driver.sleep(3000);
   }
   public async openCreateIssueField() {

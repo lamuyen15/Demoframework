@@ -15,9 +15,9 @@ export class searchBoardPage extends SeleniumWebdriverWrapper {
     `//div[@role='group']//a[@href='/jira/projects']`
   );
 
-  nameProject = By.xpath(`//tr//td[.='practice-projectTS']`);
+  nameOfProject = By.xpath(`//tr//td[.='practice-projectTS']`);
   searchBoardField = By.xpath(`//input[@name='search']`);
-  boardDisplay = By.xpath(
+  boardDisplays = By.xpath(
     `//div[span[.='create 10-15TC']]`
   );
   //method
@@ -39,7 +39,7 @@ export class searchBoardPage extends SeleniumWebdriverWrapper {
 
   public async selectProjects() {
     await this.driver.sleep(3000);
-    await this.driver.findElement(this.nameProject).click();
+    await this.driver.findElement(this.nameOfProject).click();
   }
 
   public async enterBoard(nameBoard: string) {
@@ -50,7 +50,7 @@ export class searchBoardPage extends SeleniumWebdriverWrapper {
 
   public async theBoardDisplay() {
     await this.driver.sleep(1000);
-    return this.driver.findElement(this.boardDisplay).isDisplayed();
+    return this.driver.findElement(this.boardDisplays).isDisplayed();
 
   }
 }

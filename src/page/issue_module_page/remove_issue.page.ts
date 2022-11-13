@@ -13,7 +13,7 @@ export class removeIssuePage extends SeleniumWebdriverWrapper {
   );
 
   viewAllProjects = By.xpath(`//div[@role='group']//a[@href='/jira/projects']`);
-  nameProject = By.xpath(`//tr//td[.='practice-projectTS']`);
+  nameOfProject = By.xpath(`//tr//td[.='practice-projectTS']`);
   issueOfToDoColumn = By.xpath(`//div[div[.='using Xpath']]`);
   moreBtn = By.xpath(
     `//button[@data-testid='issue-meatball-menu.ui.dropdown-trigger.button']`
@@ -38,7 +38,7 @@ export class removeIssuePage extends SeleniumWebdriverWrapper {
     await this.driver.findElement(this.projectTopHeaderBtn).click();
   }
   public async openProjectTS() {
-    await this.driver.findElement(this.nameProject).click();
+    await this.driver.findElement(this.nameOfProject).click();
     await this.driver.sleep(2000);
   }
   public async selectIssue() {

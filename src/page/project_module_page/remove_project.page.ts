@@ -12,7 +12,7 @@ export class RemoveProjectPage {
   projectTopHeaderBtn = By.xpath(
     `//div[@id='ak-jira-navigation']//button[.='Projects']`
   );
-  clickViewAllProjects = By.xpath(
+  viewAllProjects = By.xpath(
     `//div[@role='group']//a[@href='/jira/projects']`
   );
   selectMoreBtn = By.xpath(
@@ -22,7 +22,7 @@ export class RemoveProjectPage {
   moveBtn = By.xpath(
     ` //span[text()='Move']//ancestor::button[contains(@data-test-id, 'move-to-trash-button')]`
   );
-  goToTrashItem = By.xpath(`//a[.='Go to trash']`);
+  trashItem = By.xpath(`//a[.='Go to trash']`);
   deletePermanently = By.xpath(
     `//span[.='Delete permanently' and @role="menuitem"]`
   );
@@ -47,7 +47,7 @@ export class RemoveProjectPage {
   }
 
   public async openViewAllProject() {
-    await this.driver.findElement(this.clickViewAllProjects).click();
+    await this.driver.findElement(this.viewAllProjects).click();
     await this.driver.sleep(4000);
   }
 
@@ -66,7 +66,7 @@ export class RemoveProjectPage {
   }
 
   public async selectGoToTrash() {
-    await this.driver.findElement(this.goToTrashItem).click();
+    await this.driver.findElement(this.trashItem).click();
     await this.driver.sleep(4000);
   }
 

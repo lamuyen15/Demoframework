@@ -13,11 +13,11 @@ export class editIssuePage extends SeleniumWebdriverWrapper {
   );
 
   viewAllProjects = By.xpath(`//div[@role='group']//a[@href='/jira/projects']`);
-  nameProject = By.xpath(`//tr//td[.='practice-projectTS']`);
-  theIssueCreated = By.xpath(`//div[div[.='create TC for module user']]`);
+  nameOfProject = By.xpath(`//tr//td[.='practice-projectTS']`);
+  theCreatedIssue = By.xpath(`//div[div[.='create TC for module user']]`);
   commentField = By.xpath(`//input[@placeholder="Add a comment…"]`);
   saveBtn = By.xpath(`//button[@data-testid='comment-save-button']`);
-  issueUpdated = By.xpath(`//div[p[.='to prepare writing TC']]`);
+  updatedIssue = By.xpath(`//div[p[.='to prepare writing TC']]`);
   newCommentField = By.xpath(
     `//div[@data-testid='click-wrapper']//div[div[input[@data-testid='media-picker-file-input']]]//p`
   );
@@ -38,12 +38,12 @@ export class editIssuePage extends SeleniumWebdriverWrapper {
     await this.driver.findElement(this.projectTopHeaderBtn).click();
   }
   public async selectProjectTS() {
-    await this.driver.findElement(this.nameProject).click();
+    await this.driver.findElement(this.nameOfProject).click();
     await this.driver.sleep(2000);
   }
 
   public async selectIssue() {
-    await this.driver.findElement(this.theIssueCreated).click();
+    await this.driver.findElement(this.theCreatedIssue).click();
     await this.driver.sleep(2000);
   }
   public async updateIssue(issue: string) {
@@ -55,6 +55,6 @@ export class editIssuePage extends SeleniumWebdriverWrapper {
     await this.driver.findElement(this.saveBtn).click();
   }
   public async issueDisplays() {
-    return this.driver.findElement(this.issueUpdated).isDisplayed();
+    return this.driver.findElement(this.updatedIssue).isDisplayed();
   }
 }

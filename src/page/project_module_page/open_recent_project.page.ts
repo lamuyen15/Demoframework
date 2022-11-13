@@ -11,7 +11,7 @@ export class recentProjectPage extends SeleniumWebdriverWrapper {
   projectTopHeaderBtn = By.xpath(
     `//div[@id='ak-jira-navigation']//button[.='Projects']`
   );
-  projectAvailableBtn = By.xpath(
+  availableProjectBtn = By.xpath(
     ` //div[text()='Recent']//following-sibling::a[contains(@href,'/projects/PROJ/')]`
   );
   nameOfTheRecentProject = By.xpath(`//span[h2[.='Project1']]//parent::div`);
@@ -40,7 +40,7 @@ export class recentProjectPage extends SeleniumWebdriverWrapper {
   }
 
   public async clickTheRecentProject() {
-    await this.driver.findElement(this.projectAvailableBtn).click();
+    await this.driver.findElement(this.availableProjectBtn).click();
     await this.driver.sleep(1000);
   }
 

@@ -7,7 +7,7 @@ export class ProjectCreatePage {
     `//input[@id='project-create.create-form.name-field.input']`
   );
   accessField = By.xpath(`//button[contains(@data-testid,'project-access')]`);
-  openOption = By.xpath(
+  optionItem = By.xpath(
     ` //div[text()='Open']//ancestor::span[@role='menuitem' ]`
   );
   createProjectBtn = By.xpath(

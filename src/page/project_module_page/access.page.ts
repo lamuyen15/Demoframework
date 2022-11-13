@@ -15,7 +15,7 @@ export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
     `//div[@role='group']//a[@href='/jira/projects']`
   );
   projectPage = By.xpath(`//div[h1[.='Projects']]`);
-  nameProject = By.xpath(`//tr//td[.='practice-projectTS']`);
+  nameOfProject = By.xpath(`//tr//td[.='practice-projectTS']`);
   projectSettingBtn = By.xpath(`//div[span[contains(.,'Project settings')]]`);
   accessBtn = By.xpath(`//span[contains(text(),'Access')]//ancestor::a`);
   addPeopleBtn = By.xpath(`//button[span[contains(text(),'Add people')]]`);
@@ -47,7 +47,7 @@ export class addPeoPleProjectPage extends SeleniumWebdriverWrapper {
   }
 
   public async selectProject() {
-    await this.driver.findElement(this.nameProject).click();
+    await this.driver.findElement(this.nameOfProject).click();
   }
 
   public async selectProjectSetting() {
