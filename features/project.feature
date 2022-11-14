@@ -35,16 +35,16 @@ Verify that User can perform function of Project module
   #   Then User is on "Project1" page
 
 
-  Scenario: PRO-04: Verify that people can be added into the project
-    Given User select Jira Software page
-    When User is on Project page
-    And User select "practice-projectTS" on the record of the result
-    And User select Project Setting on the left of navigation bar
-    And User choose Access Item on the left of navigation bar
-    And User select Add people button on the right of top page
-    And User enter people with name "hung.phan@evizi.com"
-    And User select Add button
-    Then The new person "Hung Phan Hai Dao" displays
+  # Scenario: PRO-04: Verify that people can be added into the project
+  #   Given User select Jira Software page
+  #   When User is on Project page
+  #   And User select "practice-projectTS" on the record of the result
+  #   And User select Project Setting on the left of navigation bar
+  #   And User choose Access Item on the left of navigation bar
+  #   And User select Add people button on the right of top page
+  #   And User enter people with name "hung.phan@evizi.com"
+  #   And User select Add button
+  #   Then The new person "Hung Phan Hai Dao" displays
 
 
   # Scenario: PRO-05: Verify that user can search the board of the project
